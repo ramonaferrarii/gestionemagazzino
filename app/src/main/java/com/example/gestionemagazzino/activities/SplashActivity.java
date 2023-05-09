@@ -40,10 +40,12 @@ public class SplashActivity extends AppCompatActivity {
         FirebaseWrapper.Auth auth = new FirebaseWrapper.Auth();
         if (!auth.isAuthenticated()) {
             // Go to Activity for LogIn or SignUp
-            this.goToActivity(EnterActivity.class);
+            this.goToActivity(MainActivity.class);
+
 
 
         }
 
 
-}
+    }}
+
