@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "706210919629",
+    "project_id": "gestionemagazzino-11ed5",
+    "storage_bucket": "gestionemagazzino-11ed5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:706210919629:android:edbeb33f602d87dfae6584",
+        "android_client_info": {
+          "package_name": "com.example.gestionemagazzino"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "706210919629-bkg4v6leo8ko5u79m7p9gjdsur4gbtk4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDagcZ2lJA02qH0BezPnhr2sUTmnDst7M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "706210919629-bkg4v6leo8ko5u79m7p9gjdsur4gbtk4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
