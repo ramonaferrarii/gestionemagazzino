@@ -17,7 +17,7 @@ import com.example.gestionemagazzino.R;
 import com.example.gestionemagazzino.activities.SplashActivity;
 import com.example.gestionemagazzino.models.FirebaseWrapper;
 
-public class LoginFragments {
+public class LoginFragment {
     public class LoginFragment extends LogFragment {
         @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
         @Override
