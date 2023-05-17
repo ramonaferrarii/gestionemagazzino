@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.SignupFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <EditText
+            android:id="@+id/userEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:hint="@string/insertEmail"
+            android:layout_margin="10dp"
+            android:autofillHints="@string/insertEmail" />
+
+        <EditText
+            android:id="@+id/userPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:hint="@string/insertPassword"
+            android:layout_margin="10dp"
+            android:layout_marginTop="0dp"
+            android:autofillHints="@string/insertPassword" />
+
+        <EditText
+            android:id="@+id/userPasswordAgain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:hint="@string/insertPasswordAgain"
+            android:layout_margin="10dp"
+            android:layout_marginTop="0dp"
+            android:autofillHints="@string/insertPasswordAgain" />
+
+        <!--
+        TODO: Add all interesting infos during the registration
+        NOTE: The other infos should be saved directly on a custom db (e.g., Firebase Realtime database)
+        -->
+
+        <TextView
+            android:id="@+id/switchRegisterToLoginLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/goToLogin"
+            android:gravity="center"
+            android:pointerIcon="hand"
+            android:layout_margin="6dp"/>
+
+        <Button
+            android:id="@+id/logButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/signup"/>
+
+    </LinearLayout>
+
+</FrameLayout>

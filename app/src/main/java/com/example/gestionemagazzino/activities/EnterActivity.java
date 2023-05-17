@@ -19,8 +19,9 @@ import com.example.gestionemagazzino.fragments.SignupFragment;
 
 public class EnterActivity extends AppCompatActivity {
     //Tag univoco per l'activity
-    private static final String TAG = EnterActivity.class.getCanonicalName();ù
-    private FragmentManager fragmentmanager = null;
+    private static final String TAG = EnterActivity.class.getCanonicalName();
+    private FragmentManager fragmentManager = null;
+    private Fragment fragment = null;
 
     // prende layout di activity e la costruisce e va a mettere fragment che va definito come funziona
     @Override
@@ -36,10 +37,10 @@ public class EnterActivity extends AppCompatActivity {
        // definisco la funzione renderFragment
     public void renderFragment(boolean isLogin) {
         if(isLogin)
-            Fragment fragment = LoginFragment.newInstance("signinCallback", boolean.class);
+            fragment = LoginFragment.newInstance(LoginFragment.class,"signinCallback", boolean.class);
             // TODO: Update to switch between Login and Signup fragments
         else
-            Fragment fragment = SignupFragment.newInstance("signinCallback", boolean.class);
+            fragment = SignupFragment.newInstance(SignupFragment.class,"signinCallback", boolean.class);
         //QUESTION:Non so cosa faccia
         if (this.fragmentManager == null) {
             this.fragmentManager = this.getSupportFragmentManager();
@@ -57,18 +58,6 @@ public class EnterActivity extends AppCompatActivity {
 
     // definisco funzione di callback
     public void signinCallback(boolean result) {
-        if (!result) {
-            // TODO: Better handling of the error message --> e.g., put in a textview of the activity/fragment
-            Toast
-                    .makeText(this, "Username or password are not valid", Toast.LENGTH_LONG)
-                    .show();
-        } else {
-            // Go To Splash to check the permissions
-            Intent intent = new Intent(this, SplashActivity.class);
-            this.startActivity(intent);
-            this.finish();
-        }
-    } public void signinCallback(boolean result) {
         if (!result) {
             // TODO: Better handling of the error message --> e.g., put in a textview of the activity/fragment
             Toast

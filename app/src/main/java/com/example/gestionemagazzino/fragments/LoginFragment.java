@@ -14,11 +14,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.gestionemagazzino.R;
+import com.example.gestionemagazzino.activities.EnterActivity;
 import com.example.gestionemagazzino.activities.SplashActivity;
 import com.example.gestionemagazzino.models.FirebaseWrapper;
 
-public class LoginFragment {
-    public class LoginFragment extends LogFragment {
+public class LoginFragment extends LogFragment {
         @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
         @Override
         public void onCreate(Bundle savedInstanceState) {
@@ -34,11 +34,12 @@ public class LoginFragment {
             View externalView = inflater.inflate(R.layout.fragment_login, container, false);
 
             TextView link = externalView.findViewById(R.id.switchLoginToRegisterLabel);
+
             // si riferisce al link di registrazione se non lo si è
             link.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    ((SplashActivity)LoginFragment.this.requireActivity()).renderFragment(false);
+                    ((EnterActivity)LoginFragment.this.requireActivity()).renderFragment(false);
                 }
             });
 
@@ -74,4 +75,4 @@ public class LoginFragment {
         }
     }
 
-}
+
