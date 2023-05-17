@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">gestionemagazzino</string>
+    <string name="goToLogin">"Do you already have an account? Click here and login!"</string>
+    <string name="signup">Signup</string>
+    <string name="goToRegister">Not register? Click here to create a new account!</string>
+    <string name="insertPassword">Insert passwrod..</string>
+    <string name="insertEmail">Insert email address..</string>
+    <string name="insertPasswordAgain"> Insert password again.. </string>
+    <string name="login">LogIn</string>
 </resources>

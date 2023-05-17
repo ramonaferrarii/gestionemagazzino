@@ -12,7 +12,7 @@ import android.view.View;
 
 import com.example.gestionemagazzino.R;
 import com.example.gestionemagazzino.models.FirebaseWrapper;
-import com.example.gestionemagazzino.models.PermissionManager;
+// import com.example.gestionemagazzino.models.PermissionManager;
 
 import java.util.Random;
 
@@ -28,7 +28,7 @@ public class SplashActivity extends AppCompatActivity {
         this.finish();
     }
     @Override
-    protected void OnCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
@@ -40,12 +40,10 @@ public class SplashActivity extends AppCompatActivity {
         FirebaseWrapper.Auth auth = new FirebaseWrapper.Auth();
         if (!auth.isAuthenticated()) {
             // Go to Activity for LogIn or SignUp
-            this.goToActivity(MainActivity.class);
-
-
-
+            this.goToActivity(EnterActivity.class);
         }
-
+        else
+            this.goToActivity(MainActivity.class);
 
     }}
 
