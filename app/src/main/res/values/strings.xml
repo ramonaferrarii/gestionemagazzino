@@ -7,4 +7,13 @@
     <string name="insertEmail">Insert email address..</string>
     <string name="insertPasswordAgain"> Insert password again.. </string>
     <string name="login">LogIn</string>
+    <string name="mainSpace">Vano Principale</string>
+    <string name="aspiraz">Aspirazione</string>
+    <string name="dae">Defibrillatore</string>
+    <string name="backpack">Zaino</string>
+    <string name="childPack">Zaino Pediatrico</string>
+    <string name="misc">Varie</string>
+    <string name="DPI">D.P.I.</string>
+    <string name="trauma">Trauma</string>
+    <string name="frontSpace">Vano Guida</string>
 </resources>
