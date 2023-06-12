@@ -14,6 +14,7 @@
         tools:layout_editor_absoluteY="-127dp">
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/buttonsContainer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingLeft="20dp"
