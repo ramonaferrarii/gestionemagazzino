@@ -15,69 +15,64 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-
-
-
-
-
-
         }
 
     ButtonListener buttonListener = new ButtonListener();
 }
 
+    class ButtonListener implements View.OnClickListener {
+        // definisco listener
+        // private View.OnClickListener buttonListener = new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                switch (view.getId()) {
+                    case R.id.B_mainspace:
 
 
-    class ButtonListener implements OnClickListener {
-    // definisco listener
-    private View.OnClickListener buttonListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            switch (view.getId()) {
-                case R.id.B_mainspace:
+                        break;
+
+                    case R.id.B_aspiraz:
 
 
-                    break;
+                        break;
 
-                case R.id.B_aspiraz:
+                    case R.id.B_dae:
 
+                        break;
 
-                    break;
+                    case R.id.B_backpack:
 
-                case R.id.B_dae:
+                        break;
 
-                    break;
+                    case R.id.B_childpack:
 
-                case R.id.B_backpack:
+                        break;
 
-                    break;
+                    case R.id.B_misc:
 
-                case R.id.B_childpack:
+                        break;
 
-                    break;
+                    case R.id.B_dpi:
 
-                case R.id.B_misc:
+                        break;
 
-                    break;
+                    case R.id.B_trauma:
 
-                case R.id.B_dpi:
+                        break;
 
-                    break;
+                    case R.id.B_frontspace:
 
-                case R.id.B_trauma:
+                        break;
 
-                    break;
-
-                case R.id.B_frontspace:
-
-                    break;
-
-
+                }
             }
-        }
-    };
-}
+
+            ;
+        };
+
+
+
+
 
 
