@@ -53,61 +53,8 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    ButtonListener buttonListener = new ButtonListener();
+
 }
-
-    class ButtonListener implements View.OnClickListener {
-        // definisco listener
-        // private View.OnClickListener buttonListener = new View.OnClickListener() {
-
-           @Override
-            public void onClick(View view) {
-              /*  switch (view.getId()) {
-                    case R.id.B_mainspace:
-
-
-                        break;
-
-                    case R.id.B_aspiraz:
-
-
-                        break;
-
-                    case R.id.B_dae:
-
-                        break;
-
-                    case R.id.B_backpack:
-
-                        break;
-
-                    case R.id.B_childpack:
-
-                        break;
-
-                    case R.id.B_misc:
-
-                        break;
-
-                    case R.id.B_dpi:
-
-                        break;
-
-                    case R.id.B_trauma:
-
-                        break;
-
-                    case R.id.B_frontspace:
-
-                        break;
-
-                }
-
-          */
-            };
-
-
-        };
 
 
 

@@ -4,10 +4,12 @@ package com.example.gestionemagazzino.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.gestionemagazzino.R;
 
@@ -16,7 +18,7 @@ import com.example.gestionemagazzino.R;
  * Use the {@link ButtonsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ButtonsFragment extends Fragment {
+public class ButtonsFragment extends Fragment implements View.OnClickListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -29,6 +31,12 @@ public class ButtonsFragment extends Fragment {
 
     public ButtonsFragment() {
         // Required empty public constructor
+
+
+
+
+
+
     }
 
     /**
@@ -56,8 +64,22 @@ public class ButtonsFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-    }
 
+        //ButtonListener buttonListener = new ButtonListener();
+          Button button = (Button) getView().findViewById(R.id.B_mainspace);
+        button.setOnClickListener(this);
+
+    }
+    @Override
+    public void onClick(View view){
+        // transazione
+        /*FragmentManager fragmentManager = getParentFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.ButtonsFragment, MainSpaceFragment.class, null)
+                .setReorderingAllowed(true)
+                .addToBackStack("name") // Name can be null
+                .commit();*/
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -65,3 +87,58 @@ public class ButtonsFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_buttons, container, false);
     }
 }
+
+
+/* class ButtonListener implements View.OnClickListener {
+
+    // costruttore con parametri (forse lo togliamo perchè non serve)
+  private Button button;
+    public ButtonListener(Button button){
+        this.button=button;
+
+    }
+
+    @Override
+    public void onClick(View view) {
+               switch (view.getId()) {
+                    case R.id.B_mainspace:
+
+                        break;
+
+                    case R.id.B_aspiraz:
+
+
+                        break;
+
+                    case R.id.B_dae:
+
+                        break;
+
+                    case R.id.B_backpack:
+
+                        break;
+
+                    case R.id.B_childpack:
+
+                        break;
+
+                    case R.id.B_misc:
+
+                        break;
+
+                    case R.id.B_dpi:
+
+                        break;
+
+                    case R.id.B_trauma:
+
+                        break;
+
+                    case R.id.B_frontspace:
+
+                        break;
+
+                }
+    }
+}
+*/
