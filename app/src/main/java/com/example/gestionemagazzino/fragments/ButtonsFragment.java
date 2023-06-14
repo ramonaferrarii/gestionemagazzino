@@ -18,7 +18,7 @@ import com.example.gestionemagazzino.R;
  * Use the {@link ButtonsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ButtonsFragment extends Fragment implements View.OnClickListener {
+public class ButtonsFragment extends Fragment  {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -65,26 +65,27 @@ public class ButtonsFragment extends Fragment implements View.OnClickListener {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-        //ButtonListener buttonListener = new ButtonListener();
-          Button button = (Button) getView().findViewById(R.id.B_mainspace);
-        button.setOnClickListener(this);
 
     }
-    @Override
-    public void onClick(View view){
-        // transazione
-        /*FragmentManager fragmentManager = getParentFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.ButtonsFragment, MainSpaceFragment.class, null)
-                .setReorderingAllowed(true)
-                .addToBackStack("name") // Name can be null
-                .commit();*/
-    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_buttons, container, false);
+        View externalView = inflater.inflate(R.layout.fragment_buttons, container, false);
+        Button button = externalView.findViewById(R.id.B_mainspace);
+        button.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                FragmentManager fragmentManager = getParentFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container_view, MainSpaceFragment.class, null)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("mainSpace") // Name can be null
+                        .commit();
+            }
+        });
+        return externalView;
     }
 }
 

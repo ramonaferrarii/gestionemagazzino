@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/AspirationFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.MainSpaceFragment">
+    tools:context=".fragments.AspirationFragment">
 
-    <!-- definisco il sottomenù con linearn layout-->
 
-    <!-- creo ScrollView-->
+
+    <!-- definisco i bottoni ->
+
+    <!- creo ScrollView-->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="-127dp">
 
@@ -21,8 +23,7 @@
             android:layout_height="match_parent"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
-            android:orientation="vertical"
-            android:layout_gravity="center_horizontal">
+            android:orientation="vertical" >
 
             <Button
                 android:id="@+id/B_mainspace"
@@ -34,39 +35,6 @@
                 android:textColor="@android:color/black"
                 android:layout_marginBottom="0.5dp"/>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:orientation="vertical"
-                android:layout_gravity="center"
-                android:id="@+id/mainspace">
-
-
-                <Button
-                    android:id="@+id/B_ustione"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="ustione"
-                    android:background="@color/red"
-                    android:textColor="@android:color/black"
-                    android:layout_marginBottom="0.5dp"/>
-
-                <Button
-                    android:id="@+id/B_parto"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="parto"
-                    android:background="@color/red"
-                    android:textColor="@android:color/black"
-                    android:layout_marginBottom="0.5dp"/>
-
-
-            </LinearLayout>
-
             <Button
                 android:id="@+id/B_aspiraz"
                 android:layout_width="match_parent"
@@ -76,6 +44,72 @@
                 android:background="@color/red"
                 android:textColor="@android:color/black"
                 android:layout_marginBottom="0.5dp"/>
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center">
+                <TableRow>
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:text="aspiratore"/>
+                    <EditText
+                        android:id="@+id/aspiratore"
+                        android:layout_gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:text="raccordo conico"/>
+                    <EditText
+                        android:id="@+id/raccordo_conico"
+                        android:layout_gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:text="sacchetti monouso"/>
+                    <EditText
+                        android:id="@+id/sacchetti_monouso"
+                        android:layout_gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:text="tubo di raccordo"/>
+                    <EditText
+                        android:id="@+id/raccordo"
+                        android:layout_gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        />
+                </TableRow>
+
+            </TableLayout>
 
             <Button
                 android:id="@+id/B_dae"
