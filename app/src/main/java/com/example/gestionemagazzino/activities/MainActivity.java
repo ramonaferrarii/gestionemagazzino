@@ -34,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
         fragmentManager.beginTransaction()
                 .add(R.id.fragment_container_view, ButtonsFragment.class, null)
                 .setReorderingAllowed(true)
-                .addToBackStack("name") // Name can be null
+                //non aggiungo questo fragment alla backstack, altrimenti
+                //cliccando il tasto indietro potrei cancellare il fragment dei bottoni
                 .commit();
 
 

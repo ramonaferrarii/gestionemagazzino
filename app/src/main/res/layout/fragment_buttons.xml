@@ -35,6 +35,16 @@
                 android:textColor="@android:color/black"
                 android:layout_marginBottom="0.5dp"/>
 
+        <!--per non perdere i listener del button fragment ipotizzo di creare dei sottoframmenti per i sottomenu,
+         per farlo creo dei container nel fragment, con
+         la visibilità "gone" in modo che non si veda lo spazio finchè non chiamo il fragment-->
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/mainSpaceFragmentContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"/>
+
             <Button
                 android:id="@+id/B_aspiraz"
                 android:layout_width="match_parent"
@@ -44,6 +54,12 @@
                 android:background="@color/red"
                 android:textColor="@android:color/black"
                 android:layout_marginBottom="0.5dp"/>
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/AspirationFragmentContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"/>
 
             <Button
                 android:id="@+id/B_dae"

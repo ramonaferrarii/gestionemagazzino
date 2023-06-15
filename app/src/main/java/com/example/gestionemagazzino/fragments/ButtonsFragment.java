@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -73,16 +74,37 @@ public class ButtonsFragment extends Fragment  {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View externalView = inflater.inflate(R.layout.fragment_buttons, container, false);
-        Button button = externalView.findViewById(R.id.B_mainspace);
-        button.setOnClickListener(new View.OnClickListener(){
+        Button buttonMainSpace = externalView.findViewById(R.id.B_mainspace);
+        Button buttonAspiration = externalView.findViewById(R.id.B_aspiraz);
+        buttonMainSpace.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 FragmentManager fragmentManager = getParentFragmentManager();
-                fragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container_view, MainSpaceFragment.class, null)
+                FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
+
+                MainSpaceFragment childFragment = new MainSpaceFragment();
+                fragmentTransaction.add(R.id.mainSpaceFragmentContainer, childFragment)
                         .setReorderingAllowed(true)
                         .addToBackStack("mainSpace") // Name can be null
                         .commit();
+                View spaceView=externalView.findViewById(R.id.mainSpaceFragmentContainer);
+                spaceView.setVisibility(View.VISIBLE);
+
+            }
+        });
+        buttonAspiration.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getParentFragmentManager();
+                FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
+
+                AspirationFragment childFragment = new AspirationFragment();
+                fragmentTransaction.add(R.id.AspirationFragmentContainer, childFragment)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("Aspiration") // Name can be null
+                        .commit();
+                View spaceView=externalView.findViewById(R.id.AspirationFragmentContainer);
+                spaceView.setVisibility(View.VISIBLE);
             }
         });
         return externalView;
