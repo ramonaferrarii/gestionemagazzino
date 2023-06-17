@@ -7,8 +7,13 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.gestionemagazzino.R;
+
+import java.util.HashMap;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +30,14 @@ public class AspirationFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private EditText asp ;
+    private EditText raccCo;
+    private EditText saccMon;
+    private EditText tubRacc;
+
+
+
 
     public AspirationFragment() {
         // Required empty public constructor
@@ -60,7 +73,27 @@ public class AspirationFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_aspiration, container, false);
+        View externalView = inflater.inflate(R.layout.fragment_aspiration, container, false);
+        asp=externalView.findViewById(R.id.ET_aspiratore);
+        raccCo= externalView.findViewById(R.id.ET_raccordo_conico);
+        saccMon= externalView.findViewById(R.id.ET_sacchetti_monouso);
+        tubRacc= externalView.findViewById(R.id.ET_tuboRaccordo);
+        Button saveButton = externalView.findViewById(R.id.B_save);
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                HashMap<String, Integer> editTextValues= new HashMap<>();
+                editTextValues.put("Aspiratore", Integer.parseInt(asp.getText().toString()));
+                editTextValues.put("RaccConic", Integer.parseInt(raccCo.getText().toString()));
+                editTextValues.put("SacchMono", Integer.parseInt(saccMon.getText().toString()));
+                editTextValues.put("TuboRacc", Integer.parseInt(asp.getText().toString()));
+                CharSequence msg="parametri salvati";
+                Toast.makeText(externalView.getContext(), msg, Toast.LENGTH_SHORT).show();
+                //TODO: handle the case where the user submits an empty editText
+            }
+        });
+        return externalView;
     }
 }
