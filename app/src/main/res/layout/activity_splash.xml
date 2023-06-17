@@ -23,12 +23,6 @@
             android:layout_height="wrap_content"
             android:text="@string/grantPermission" />
 
-        <Button
-            android:id="@+id/notgrantPermission"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/notGrantPermission" />
-
     </LinearLayout>
 
 

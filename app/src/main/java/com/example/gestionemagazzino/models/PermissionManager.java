@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PermissionManager {
-    private final static String[] NEEDED_PERMISSIONS = {Manifest.permission.READ_CALENDAR};
+    private final static String[] NEEDED_PERMISSIONS = {Manifest.permission.ACCESS_COARSE_LOCATION};
     private final static String TAG = PermissionManager.class.getCanonicalName();
 
     private final Activity activity;
