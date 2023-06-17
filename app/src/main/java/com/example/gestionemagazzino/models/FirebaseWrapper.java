@@ -7,6 +7,8 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -17,6 +19,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FieldValue;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -117,15 +122,34 @@ import java.lang.reflect.Method;
 
             private static final String CHILD = "Magazzino";
 
-            private DatabaseReference getDb(){
-                DatabaseReference ref =
-                        FirebaseDatabase
-                                .getInstance("https://gestionemagazzino-11ed5.eur3.firebasedatabase.app/")
-                                .getReference(CHILD);
+            private FirebaseFirestore getDb(){
+                FirebaseFirestore ref =
+                        FirebaseFirestore.getInstance();
+
+
                 return ref;
             }
 
-            public void writeDbData(){}
+
+            public void updateDbData(String doc, String key, int value){
+                //get reference to specified document
+                DocumentReference docRef = getDb().collection(CHILD).document(doc);
+                docRef
+                        .update(key, FieldValue.increment(value))
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                Log.d(TAG, "DocumentSnapshot successfully updated");
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.w(TAG, "Error updating document", e);
+                            }
+                        });
+
+            }
         }
 
     }
