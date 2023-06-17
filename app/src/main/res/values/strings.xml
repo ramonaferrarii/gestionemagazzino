@@ -16,6 +16,10 @@
     <string name="DPI">D.P.I.</string>
     <string name="trauma">Trauma</string>
     <string name="frontSpace">Vano Guida</string>
+    <!-- permessi per localizzazione-->
+    <string name="neededPermissions"> Consenti autorizzazione della posizione?</string>
+    <string name="grantPermission"> Consento </string>
+    <string name="notGrantPermission"> Non consento</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
