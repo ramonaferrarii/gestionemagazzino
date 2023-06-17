@@ -11,6 +11,8 @@ import android.util.Log;
 import android.view.View;
 
 import com.example.gestionemagazzino.R;
+import com.example.gestionemagazzino.models.FirebaseWrapper;
+import com.example.gestionemagazzino.models.PermissionManager;
 
 import java.util.Random;
 
@@ -32,15 +34,15 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-       /* // TODO: check user
+        // TODO: check user
         // If not --> log
         // Firebase auth: https://firebase.google.com/docs/auth/android/start?hl=en#java
         FirebaseWrapper.Auth auth = new FirebaseWrapper.Auth();
-         utente è loggato o no? se non lo è allora chiamo l'enter activity
+        // utente è loggato o no? se non lo è allora chiamo l'enter activity
         if (!auth.isAuthenticated()) {
             // Go to Activity for LogIn or SignUp
             this.goToActivity(EnterActivity.class);
-        } */
+        }
 
         // Check permissions -- Do not request at the login!
         PermissionManager pm = new PermissionManager(this);
@@ -56,7 +58,7 @@ public class SplashActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (!pm.askNeededPermissions(PERMISSION_REQUEST_CODE, true)) {
                     // Go to MainActivity
-                    SplashActivity.this.goToActivity(EnterActivity.class);
+                    SplashActivity.this.goToActivity(MainActivity.class);
                 }
             }
         });
@@ -80,4 +82,25 @@ public class SplashActivity extends AppCompatActivity {
         // All permissions are granted
         Log.d(TAG, "All the needed permissions are granted!");
         this.goToActivity(MainActivity.class);
-    }}
+    }
+}
+
+// da cancellare!!
+    /*public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (requestCode != PERMISSION_REQUEST_CODE) {
+            return;
+        }
+
+        for (int res : grantResults) {
+            if (res == PackageManager.PERMISSION_DENIED) {
+                Log.w(TAG, "A needed permission is not granted!");
+                return;
+            }
+        }
+
+        // All permissions are granted
+        Log.d(TAG, "All the needed permissions are granted!");
+        this.goToActivity(MainActivity.class);
+    }} */

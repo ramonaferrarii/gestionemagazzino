@@ -1,4 +1,4 @@
-package com.example.gestionemagazzino.activities;
+package com.example.gestionemagazzino.models;
 
 
 import android.Manifest;
