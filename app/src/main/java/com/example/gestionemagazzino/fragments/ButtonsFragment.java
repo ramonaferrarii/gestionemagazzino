@@ -170,72 +170,37 @@ public class ButtonsFragment extends Fragment  {
                 spaceView.setVisibility(View.VISIBLE);
             }
         });
-
-
-
-
-
-
+        buttonFrontspace.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getParentFragmentManager();
+                FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
+                FrontspaceFragment childFragment = new FrontspaceFragment();
+                fragmentTransaction.add(R.id.FrontspaceFragmentContainer, childFragment)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("Frontspace") // Name can be null
+                        .commit();
+                View spaceView=externalView.findViewById(R.id.FrontspaceFragmentContainer);
+                spaceView.setVisibility(View.VISIBLE);
+            }
+        });
+        buttonTrauma.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getParentFragmentManager();
+                FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
+                TraumaFragment childFragment = new TraumaFragment();
+                fragmentTransaction.add(R.id.TraumaFragmentContainer, childFragment)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("Trauma") // Name can be null
+                        .commit();
+                View spaceView=externalView.findViewById(R.id.TraumaFragmentContainer);
+                spaceView.setVisibility(View.VISIBLE);
+            }
+        });
 
         return externalView;
     }
 }
 
 
-
-
-
-// DA LEVARE!!!
-/* class ButtonListener implements View.OnClickListener {
-
-    // costruttore con parametri (forse lo togliamo perchè non serve)
-  private Button button;
-    public ButtonListener(Button button){
-        this.button=button;
-
-    }
-
-    @Override
-    public void onClick(View view) {
-               switch (view.getId()) {
-                    case R.id.B_mainspace:
-
-                        break;
-
-                    case R.id.B_aspiraz:
-
-
-                        break;
-
-                    case R.id.B_dae:
-
-                        break;
-
-                    case R.id.B_backpack:
-
-                        break;
-
-                    case R.id.B_childpack:
-
-                        break;
-
-                    case R.id.B_misc:
-
-                        break;
-
-                    case R.id.B_dpi:
-
-                        break;
-
-                    case R.id.B_trauma:
-
-                        break;
-
-                    case R.id.B_frontspace:
-
-                        break;
-
-                }
-    }
-}
-*/

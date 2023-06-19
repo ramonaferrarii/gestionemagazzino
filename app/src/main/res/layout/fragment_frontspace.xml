@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/DpiFragmentContainer"
+    android:id="@+id/FrontspaceFragmentContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.DpiFragment">
+    tools:context=".fragments.FrontspaceFragment">
 
 
     <TableLayout
@@ -17,9 +17,9 @@
                 android:layout_height="match_parent"
                 android:layout_width="match_parent"
                 android:layout_gravity="center"
-                android:text="guanti in nitrile"/>
+                android:text="rapportino"/>
             <EditText
-                android:id="@+id/guanti_in_nitrile"
+                android:id="@+id/rapportino"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -34,9 +34,9 @@
                 android:layout_height="match_parent"
                 android:layout_width="match_parent"
                 android:layout_gravity="center"
-                android:text="caschi di protezione"/>
+                android:text="pulsiosimetro"/>
             <EditText
-                android:id="@+id/caschi_di_protezione"
+                android:id="@+id/pulsiosimetro"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -51,9 +51,9 @@
                 android:layout_height="match_parent"
                 android:layout_width="match_parent"
                 android:layout_gravity="center"
-                android:text="copriscarpe"/>
+                android:text="fonendoscopio"/>
             <EditText
-                android:id="@+id/copriscarpe"
+                android:id="@+id/fonendoscopio"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -68,9 +68,9 @@
                 android:layout_height="match_parent"
                 android:layout_width="match_parent"
                 android:layout_gravity="center"
-                android:text="mascherine chirurgiche"/>
+                android:text="sfigmomanometro"/>
             <EditText
-                android:id="@+id/mascherine_chirurgiche"
+                android:id="@+id/sfigmomanometro"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -85,9 +85,9 @@
                 android:layout_height="match_parent"
                 android:layout_width="match_parent"
                 android:layout_gravity="center"
-                android:text="FFP2"/>
+                android:text="termometro timpanico"/>
             <EditText
-                android:id="@+id/FFP2"
+                android:id="@+id/termometro_timpanico"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -102,9 +102,9 @@
                 android:layout_height="match_parent"
                 android:layout_width="match_parent"
                 android:layout_gravity="center"
-                android:text="visiere"/>
+                android:text="torcia"/>
             <EditText
-                android:id="@+id/visiere"
+                android:id="@+id/torcia"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

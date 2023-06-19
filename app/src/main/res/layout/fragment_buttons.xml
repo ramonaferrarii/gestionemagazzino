@@ -147,6 +147,12 @@
                 android:textColor="@android:color/black"
                 android:layout_marginBottom="0.5dp"/>
 
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/TraumaFragmentContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"/>
+
             <Button
                 android:id="@+id/B_frontspace"
                 android:layout_width="match_parent"
@@ -156,6 +162,12 @@
                 android:background="@color/red"
                 android:textColor="@android:color/black"
                 android:layout_marginBottom="0.5dp"/>
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/FrontspaceFragmentContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"/>
         </LinearLayout>
 
 
