@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/DaeFragmentContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.DaeFragment">
+
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
+            <TableRow>
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:text="D.A.E"/>
+                <EditText
+                    android:id="@+id/D.A.E."
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:hint="inserire la quantità desiderata"
+                    />
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:text="garze non sterili"/>
+                <EditText
+                    android:id="@+id/garze_non_sterili"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:hint="inserire la quantità desiderata"
+                    />
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:text="piastre_monouso"/>
+                <EditText
+                    android:id="@+id/piastre_monouso"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:hint="inserire la quantità desiderata"
+                    />
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:text="rasoio"/>
+                <EditText
+                    android:id="@+id/rasoio"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:hint="inserire la quantità desiderata"
+                    />
+            </TableRow>
+
+        </TableLayout>
+
+
+    </FrameLayout>
+

@@ -34,10 +34,6 @@ public class ButtonsFragment extends Fragment  {
         // Required empty public constructor
 
 
-
-
-
-
     }
 
     /**
@@ -118,6 +114,25 @@ public class ButtonsFragment extends Fragment  {
                 spaceView.setVisibility(View.VISIBLE);
             }
         });
+        buttonDae.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getParentFragmentManager();
+                FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
+                DaeFragment childFragment = new DaeFragment();
+                fragmentTransaction.add(R.id.DaeFragmentContainer, childFragment)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("Dae") // Name can be null
+                        .commit();
+                View spaceView=externalView.findViewById(R.id.DaeFragmentContainer);
+                spaceView.setVisibility(View.VISIBLE);
+            }
+        });
+
+
+
+
+
         return externalView;
     }
 }
