@@ -74,8 +74,19 @@ public class ButtonsFragment extends Fragment  {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View externalView = inflater.inflate(R.layout.fragment_buttons, container, false);
+
+        // creazione dei listener per ogni bottone
         Button buttonMainSpace = externalView.findViewById(R.id.B_mainspace);
         Button buttonAspiration = externalView.findViewById(R.id.B_aspiraz);
+        Button buttonDae = externalView.findViewById(R.id.B_dae);
+        Button buttonBackpack = externalView.findViewById(R.id.B_backpack);
+        Button buttonChildpack = externalView.findViewById(R.id.B_childpack);
+        Button buttonMisc = externalView.findViewById(R.id.B_misc);
+        Button buttonDpi = externalView.findViewById(R.id.B_dpi);
+        Button buttonTrauma = externalView.findViewById(R.id.B_trauma);
+        Button buttonFrontspace = externalView.findViewById(R.id.B_frontspace);
+
+        // divisione di cosa succede nelle varie casistiche se schiaccio un bottone piuttosto che un altro
         buttonMainSpace.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -112,6 +123,10 @@ public class ButtonsFragment extends Fragment  {
 }
 
 
+
+
+
+// DA LEVARE!!!
 /* class ButtonListener implements View.OnClickListener {
 
     // costruttore con parametri (forse lo togliamo perchè non serve)
