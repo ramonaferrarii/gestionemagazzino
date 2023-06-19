@@ -19,12 +19,20 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import org.checkerframework.checker.units.qual.C;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
 
 // NOTE: With firebase we have to do a network request --> We need to add the permission in the AndroidManifest.xml
 //      -> ref: https://developer.android.com/training/basics/network-ops/connecting
@@ -45,6 +53,8 @@ import java.lang.reflect.Method;
             private final static String TAG = Callback.class.getCanonicalName();
             private final Method method;
             private final Object thiz;
+
+            private DocumentSnapshot ds;
 
             public Callback(Method method, Object thiz) {
                 this.method = method;
@@ -135,7 +145,7 @@ import java.lang.reflect.Method;
                 //get reference to specified document
                 DocumentReference docRef = getDb().collection(CHILD).document(doc);
                 docRef
-                        .update(key, FieldValue.increment(value))
+                        .update(key, FieldValue.increment(-value))
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {
@@ -150,6 +160,36 @@ import java.lang.reflect.Method;
                         });
 
             }
+
+            public void readDbData(String docName, FirestoreCallback callback){
+                FirebaseFirestore db = getDb();
+                DocumentReference docRef = db.collection(CHILD).document(docName);
+                DocumentSnapshot ds;
+                docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful()) {
+                            DocumentSnapshot document = task.getResult();
+                            if (document.exists()) {
+                                Log.d(TAG, "DocumentSnapshot data: " + document.getData());
+                                HashMap<String, Object> data = (HashMap<String, Object>) document.getData();
+                                callback.onCallback(data);
+
+                            } else {
+                                Log.d(TAG, "No such document");
+                            }
+                        } else {
+                            Log.d(TAG, "get failed with ", task.getException());
+                        }
+                    }
+                });
+
+            }
+
+            public interface FirestoreCallback{
+                void onCallback (HashMap<String, Object> data);
+            }
+
         }
 
     }
