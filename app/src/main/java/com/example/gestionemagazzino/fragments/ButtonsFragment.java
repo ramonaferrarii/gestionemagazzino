@@ -198,6 +198,22 @@ public class ButtonsFragment extends Fragment  {
                 spaceView.setVisibility(View.VISIBLE);
             }
         });
+        buttonBackpack.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                FragmentManager fragmentManager = getParentFragmentManager();
+                FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
+
+                BackpackFragment childFragment = new BackpackFragment();
+                fragmentTransaction.add(R.id.BackpackFragmentContainer, childFragment)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("mainSpace") // Name can be null
+                        .commit();
+                View spaceView=externalView.findViewById(R.id.BackpackFragmentContainer);
+                spaceView.setVisibility(View.VISIBLE);
+
+            }
+        });
 
         return externalView;
     }

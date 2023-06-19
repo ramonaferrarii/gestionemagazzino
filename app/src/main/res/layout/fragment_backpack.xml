@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.BackpackFragment">
+
+    <!-- definisco il sottomenù con linearn layout-->
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:id="@+id/mainspace">
+
+
+        <Button
+            android:id="@+id/B_kitambu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="kitambu"
+            android:background="@color/red"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="0.5dp"/>
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/kitambuFragmentContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"/>
+
+        <Button
+            android:id="@+id/B_medicazione"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="medicazione"
+            android:background="@color/red"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="0.5dp"/>
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/MedicazioneFragmentContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"/>
+
+
+    </LinearLayout>
+
+
+</FrameLayout>

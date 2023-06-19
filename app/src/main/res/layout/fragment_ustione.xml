@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/UstioneFragmentContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.UstioneFragment">
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
+        <TableRow>
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:text="garza per ustioni"/>
+            <EditText
+                android:id="@+id/garza_per_ustioni"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="0"
+                />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:text="forbice"/>
+            <EditText
+                android:id="@+id/forbice"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="0"
+                />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:text="gel"/>
+            <EditText
+                android:id="@+id/gel"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="0"
+                />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:text="ghiaccio"/>
+            <EditText
+                android:id="@+id/ghiaccio"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="0"
+                />
+        </TableRow>
+
+    </TableLayout>
+
+
+</FrameLayout>

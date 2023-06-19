@@ -88,6 +88,12 @@
                 android:textColor="@android:color/black"
                 android:layout_marginBottom="0.5dp"/>
 
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/BackpackFragmentContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"/>
+
 
             <Button
                 android:id="@+id/B_childpack"
