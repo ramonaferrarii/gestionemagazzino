@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="kitambu"
-            android:background="@color/red"
+            android:background="@color/orange"
             android:textColor="@android:color/black"
             android:layout_marginBottom="0.5dp"/>
 
