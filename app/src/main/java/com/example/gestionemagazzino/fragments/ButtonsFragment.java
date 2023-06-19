@@ -128,6 +128,50 @@ public class ButtonsFragment extends Fragment  {
                 spaceView.setVisibility(View.VISIBLE);
             }
         });
+        buttonChildpack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getParentFragmentManager();
+                FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
+                ChildpackFragment childFragment = new ChildpackFragment();
+                fragmentTransaction.add(R.id.ChildpackFragmentContainer, childFragment)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("Childpack") // Name can be null
+                        .commit();
+                View spaceView=externalView.findViewById(R.id.ChildpackFragmentContainer);
+                spaceView.setVisibility(View.VISIBLE);
+            }
+        });
+        buttonMisc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getParentFragmentManager();
+                FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
+                MiscFragment childFragment = new MiscFragment();
+                fragmentTransaction.add(R.id.MiscFragmentContainer, childFragment)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("Misc") // Name can be null
+                        .commit();
+                View spaceView=externalView.findViewById(R.id.MiscFragmentContainer);
+                spaceView.setVisibility(View.VISIBLE);
+            }
+        });
+        buttonDpi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getParentFragmentManager();
+                FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
+                DpiFragment childFragment = new DpiFragment();
+                fragmentTransaction.add(R.id.DpiFragmentContainer, childFragment)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("Dpi") // Name can be null
+                        .commit();
+                View spaceView=externalView.findViewById(R.id.DpiFragmentContainer);
+                spaceView.setVisibility(View.VISIBLE);
+            }
+        });
+
+
 
 
 

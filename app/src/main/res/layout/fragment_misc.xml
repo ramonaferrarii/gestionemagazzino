@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/MiscFragmentContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.MiscFragment">
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
+        <TableRow>
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:text="box per aghi"/>
+            <EditText
+                android:id="@+id/box_per_aghi"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="inserire la quantità"
+                />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:text="guanti da lavoro"/>
+            <EditText
+                android:id="@+id/guanti_da_lavoro"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="inserire la quantità"
+                />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:text="padella"/>
+            <EditText
+                android:id="@+id/padella"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="inserire la quantità"
+                />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:text="pappagallo"/>
+            <EditText
+                android:id="@+id/pappagallo"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="inserire la quantità"
+                />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:text="lenzuola"/>
+            <EditText
+                android:id="@+id/lenzuola"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="inserire la quantità"
+                />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:text="sacchetti rifiuti"/>
+            <EditText
+                android:id="@+id/sacchetti_rifiuti"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="inserire la quantità"
+                />
+        </TableRow>
+
+    </TableLayout>
+
+
+</FrameLayout>
