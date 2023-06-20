@@ -34,10 +34,6 @@ public class ButtonsFragment extends Fragment  {
         // Required empty public constructor
 
 
-
-
-
-
     }
 
     /**
@@ -74,8 +70,19 @@ public class ButtonsFragment extends Fragment  {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View externalView = inflater.inflate(R.layout.fragment_buttons, container, false);
+
+        // creazione dei listener per ogni bottone
         Button buttonMainSpace = externalView.findViewById(R.id.B_mainspace);
         Button buttonAspiration = externalView.findViewById(R.id.B_aspiraz);
+        Button buttonDae = externalView.findViewById(R.id.B_dae);
+        Button buttonBackpack = externalView.findViewById(R.id.B_backpack);
+        Button buttonChildpack = externalView.findViewById(R.id.B_childpack);
+        Button buttonMisc = externalView.findViewById(R.id.B_misc);
+        Button buttonDpi = externalView.findViewById(R.id.B_dpi);
+        Button buttonTrauma = externalView.findViewById(R.id.B_trauma);
+        Button buttonFrontspace = externalView.findViewById(R.id.B_frontspace);
+
+        // divisione di cosa succede nelle varie casistiche se schiaccio un bottone piuttosto che un altro
         buttonMainSpace.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -107,61 +114,93 @@ public class ButtonsFragment extends Fragment  {
                 spaceView.setVisibility(View.VISIBLE);
             }
         });
+        buttonDae.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getParentFragmentManager();
+                FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
+                DaeFragment childFragment = new DaeFragment();
+                fragmentTransaction.add(R.id.DaeFragmentContainer, childFragment)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("Dae") // Name can be null
+                        .commit();
+                View spaceView=externalView.findViewById(R.id.DaeFragmentContainer);
+                spaceView.setVisibility(View.VISIBLE);
+            }
+        });
+        buttonChildpack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getParentFragmentManager();
+                FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
+                ChildpackFragment childFragment = new ChildpackFragment();
+                fragmentTransaction.add(R.id.ChildpackFragmentContainer, childFragment)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("Childpack") // Name can be null
+                        .commit();
+                View spaceView=externalView.findViewById(R.id.ChildpackFragmentContainer);
+                spaceView.setVisibility(View.VISIBLE);
+            }
+        });
+        buttonMisc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getParentFragmentManager();
+                FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
+                MiscFragment childFragment = new MiscFragment();
+                fragmentTransaction.add(R.id.MiscFragmentContainer, childFragment)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("Misc") // Name can be null
+                        .commit();
+                View spaceView=externalView.findViewById(R.id.MiscFragmentContainer);
+                spaceView.setVisibility(View.VISIBLE);
+            }
+        });
+        buttonDpi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getParentFragmentManager();
+                FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
+                DpiFragment childFragment = new DpiFragment();
+                fragmentTransaction.add(R.id.DpiFragmentContainer, childFragment)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("Dpi") // Name can be null
+                        .commit();
+                View spaceView=externalView.findViewById(R.id.DpiFragmentContainer);
+                spaceView.setVisibility(View.VISIBLE);
+            }
+        });
+        buttonFrontspace.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getParentFragmentManager();
+                FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
+                FrontspaceFragment childFragment = new FrontspaceFragment();
+                fragmentTransaction.add(R.id.FrontspaceFragmentContainer, childFragment)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("Frontspace") // Name can be null
+                        .commit();
+                View spaceView=externalView.findViewById(R.id.FrontspaceFragmentContainer);
+                spaceView.setVisibility(View.VISIBLE);
+            }
+        });
+        buttonTrauma.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getParentFragmentManager();
+                FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
+                TraumaFragment childFragment = new TraumaFragment();
+                fragmentTransaction.add(R.id.TraumaFragmentContainer, childFragment)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("Trauma") // Name can be null
+                        .commit();
+                View spaceView=externalView.findViewById(R.id.TraumaFragmentContainer);
+                spaceView.setVisibility(View.VISIBLE);
+            }
+        });
+
         return externalView;
     }
 }
 
 
-/* class ButtonListener implements View.OnClickListener {
-
-    // costruttore con parametri (forse lo togliamo perchè non serve)
-  private Button button;
-    public ButtonListener(Button button){
-        this.button=button;
-
-    }
-
-    @Override
-    public void onClick(View view) {
-               switch (view.getId()) {
-                    case R.id.B_mainspace:
-
-                        break;
-
-                    case R.id.B_aspiraz:
-
-
-                        break;
-
-                    case R.id.B_dae:
-
-                        break;
-
-                    case R.id.B_backpack:
-
-                        break;
-
-                    case R.id.B_childpack:
-
-                        break;
-
-                    case R.id.B_misc:
-
-                        break;
-
-                    case R.id.B_dpi:
-
-                        break;
-
-                    case R.id.B_trauma:
-
-                        break;
-
-                    case R.id.B_frontspace:
-
-                        break;
-
-                }
-    }
-}
-*/
