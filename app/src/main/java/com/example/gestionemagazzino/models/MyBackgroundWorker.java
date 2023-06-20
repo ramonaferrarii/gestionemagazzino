@@ -13,6 +13,7 @@ import com.example.gestionemagazzino.R;
 import com.example.gestionemagazzino.activities.MainActivity;
 
 import java.security.Permission;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -32,15 +33,18 @@ public class MyBackgroundWorker extends Worker{
         db.readDbData("Aspirazione", new FirebaseWrapper.RTDatabase.FirestoreCallback() {
             @Override
             public void onCallback(HashMap<String, Object> data) {
+                ArrayList<String> objs = new ArrayList<>();
                 if (data != null) {
                     //check every entry in the desired document for quantities inferior to 5
                     for (Map.Entry<String, Object> entry : data.entrySet()) {
                         if ((Long)entry.getValue()<5){
-                            String obj=entry.getKey();
-                             //notification function
-                            SendNotification("oggetto in esaurimento: "+obj);
+                            objs.add(entry.getKey());
+
                         }
                     }
+                    String obj= String.join(", ",objs);
+                    //notification function
+                    SendNotification("oggetto in esaurimento: "+obj);
                 }
             }
         });
@@ -50,7 +54,6 @@ public class MyBackgroundWorker extends Worker{
 
     @SuppressLint("MissingPermission")
     private void SendNotification(String msg){
-        //TODO: find way to obtain channel_id
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), "GMNC1")
                 .setContentTitle("Materiale in esaurimento")
                 .setContentText(msg)
