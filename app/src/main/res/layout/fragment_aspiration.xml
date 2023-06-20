@@ -18,14 +18,15 @@
                         android:layout_width="match_parent"
                         android:layout_gravity="center"
                         android:text="aspiratore"/>
+
                     <EditText
-                        android:id="@+id/aspiratore"
+                        android:id="@+id/ET_aspiratore"
                         android:layout_gravity="center"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="number"
-                        android:hint="0"
+                        android:text="0"
                         />
                 </TableRow>
                 <TableRow>
@@ -36,13 +37,13 @@
                         android:layout_gravity="center"
                         android:text="raccordo conico"/>
                     <EditText
-                        android:id="@+id/raccordo_conico"
+                        android:id="@+id/ET_raccordo_conico"
                         android:layout_gravity="center"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="number"
-                        android:hint="0"
+                        android:text="0"
                         />
                 </TableRow>
                 <TableRow>
@@ -53,13 +54,13 @@
                         android:layout_gravity="center"
                         android:text="sacchetti monouso"/>
                     <EditText
-                        android:id="@+id/sacchetti_monouso"
+                        android:id="@+id/ET_sacchetti_monouso"
                         android:layout_gravity="center"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="number"
-                        android:hint="0"
+                        android:text="0"
                         />
                 </TableRow>
                 <TableRow>
@@ -70,17 +71,26 @@
                         android:layout_gravity="center"
                         android:text="tubo di raccordo"/>
                     <EditText
-                        android:id="@+id/raccordo"
+                        android:id="@+id/ET_tuboRaccordo"
                         android:layout_gravity="center"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="number"
-                        android:hint="0"
+                        android:text="0"
                         />
                 </TableRow>
-
+                <TableRow>
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/save"
+                        android:layout_gravity="center"
+                        android:id="@+id/B_save"/>
+                </TableRow>
             </TableLayout>
+
+
 
 
 </FrameLayout>
