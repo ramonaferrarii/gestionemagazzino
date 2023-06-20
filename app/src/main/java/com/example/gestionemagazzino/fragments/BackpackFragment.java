@@ -91,18 +91,23 @@ public class BackpackFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentManager fragmentManager = getParentFragmentManager();
-                FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
-                MedicazioneFragment childFragment = new MedicazioneFragment();
-                fragmentTransaction.add(R.id.MedicazioneFragmentContainer, childFragment)
-                        .setReorderingAllowed(true)
-                        .addToBackStack("Parto") // Name can be null
-                        .commit();
-                View spaceView=externalView.findViewById(R.id.MedicazioneFragmentContainer);
-                spaceView.setVisibility(View.VISIBLE);
+                Fragment fragment = fragmentManager.findFragmentById(R.id.MedicazioneFragmentContainer);
+                if (fragment != null && fragment.isVisible()) {
+                    fragmentManager.beginTransaction().hide(fragment).commit();
+                    View spaceView = externalView.findViewById(R.id.MedicazioneFragmentContainer);
+                    spaceView.setVisibility(View.GONE);
+                } else {
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    MedicazioneFragment childFragment = new MedicazioneFragment();
+                    fragmentTransaction.replace(R.id.MedicazioneFragmentContainer, childFragment)
+                            .setReorderingAllowed(true)
+                            .addToBackStack("Parto")
+                            .commit();
+                    View spaceView = externalView.findViewById(R.id.MedicazioneFragmentContainer);
+                    spaceView.setVisibility(View.VISIBLE);
+                }
             }
         });
-
-
 
         return externalView;
     }
