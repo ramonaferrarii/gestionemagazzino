@@ -4,10 +4,18 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
 import com.example.gestionemagazzino.R;
+import com.example.gestionemagazzino.models.FirebaseWrapper;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MiscFragment extends Fragment {
 
@@ -19,6 +27,17 @@ public class MiscFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private String[] dbKeys={"Box Per Aghi","Guanti Da Lavoro","Padella", "Pappagallo", "Lenzuola", "Sacchetti Rifiuti"};
+
+    private ArrayList<EditText> editTextsList = new ArrayList<EditText>();
+
+    private EditText boxperaghi ;
+    private EditText guantidalavoro;
+    private EditText padella;
+    private EditText pappagallo;
+    private EditText lenzuola;
+    private EditText sacchettirifiuti;
 
     public MiscFragment() {
         // Required empty public constructor
@@ -55,6 +74,33 @@ public class MiscFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_misc, container, false);
+        View externalView = inflater.inflate(R.layout.fragment_misc, container, false);
+        editTextsList.add(externalView.findViewById(R.id.ET_box_per_aghi));
+        editTextsList.add(externalView.findViewById(R.id.ET_guanti_da_lavoro));
+        editTextsList.add(externalView.findViewById(R.id.ET_padella));
+        editTextsList.add(externalView.findViewById(R.id.ET_pappagallo));
+        editTextsList.add(externalView.findViewById(R.id.ET_lenzuola));
+        editTextsList.add(externalView.findViewById(R.id.ET_sacchetti_rifiuti));
+        Button saveButton = externalView.findViewById(R.id.B_save);
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                HashMap<String, Integer> editTextValues= new HashMap<>();
+                for(int i=0;i<4;i++)
+                    editTextValues.put(dbKeys[i], Integer.parseInt(editTextsList.get(i).getText().toString()));
+
+
+                FirebaseWrapper.RTDatabase RTdb = new FirebaseWrapper.RTDatabase();
+                for (Map.Entry<String, Integer> entry : editTextValues.entrySet()){
+                    RTdb.updateDbData("Misc",entry.getKey(),entry.getValue());
+                }
+                for (EditText editText : editTextsList)
+                    editText.setText("0");
+                CharSequence msg="parametri salvati";
+                Toast.makeText(externalView.getContext(), msg, Toast.LENGTH_SHORT).show();
+                //TODO: handle the case where the user submits an empty editText
+            }
+        });
+        return externalView;
     }
 }

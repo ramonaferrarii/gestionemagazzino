@@ -19,7 +19,7 @@
                 android:layout_gravity="center"
                 android:text="aspiratore neonatale"/>
             <EditText
-                android:id="@+id/aspiratore_neonatale"
+                android:id="@+id/ET_aspiratore_neonatale"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
                 android:layout_gravity="center"
                 android:text="guanti in lattice sterili"/>
             <EditText
-                android:id="@+id/guanti_in_lattice_sterili"
+                android:id="@+id/ET_guanti_in_lattice_sterili"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
                 android:layout_gravity="center"
                 android:text="rotolo cerotto"/>
             <EditText
-                android:id="@+id/rotolo_cerotto"
+                android:id="@+id/ET_rotolo_cerotto"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
                 android:layout_gravity="center"
                 android:text="pinzetta ombelicale"/>
             <EditText
-                android:id="@+id/pinzetta_ombelicale"
+                android:id="@+id/ET_pinzetta_ombelicale"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
                 android:layout_gravity="center"
                 android:text="pinza clamp"/>
             <EditText
-                android:id="@+id/pinza_clamp"
+                android:id="@+id/ET_pinza_clamp"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -96,7 +96,14 @@
                 android:hint="0"
                 />
         </TableRow>
-
+        <TableRow>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/save"
+                android:layout_gravity="center"
+                android:id="@+id/B_save"/>
+        </TableRow>
     </TableLayout>
 
 

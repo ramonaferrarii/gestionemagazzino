@@ -19,7 +19,7 @@
                 android:layout_gravity="center"
                 android:text="garza per ustioni"/>
             <EditText
-                android:id="@+id/garza_per_ustioni"
+                android:id="@+id/ET_garza_per_ustioni"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
                 android:layout_gravity="center"
                 android:text="forbice"/>
             <EditText
-                android:id="@+id/forbice"
+                android:id="@+id/ET_forbice"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
                 android:layout_gravity="center"
                 android:text="gel"/>
             <EditText
-                android:id="@+id/gel"
+                android:id="@+id/ET_gel"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
                 android:layout_gravity="center"
                 android:text="ghiaccio"/>
             <EditText
-                android:id="@+id/ghiaccio"
+                android:id="@+id/ET_ghiaccio"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -79,8 +79,16 @@
                 android:hint="0"
                 />
         </TableRow>
-
+        <TableRow>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/save"
+                android:layout_gravity="center"
+                android:id="@+id/B_save"/>
+        </TableRow>
     </TableLayout>
+
 
 
 </FrameLayout>

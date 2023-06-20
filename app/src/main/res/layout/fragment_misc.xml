@@ -19,7 +19,7 @@
                 android:layout_gravity="center"
                 android:text="box per aghi"/>
             <EditText
-                android:id="@+id/box_per_aghi"
+                android:id="@+id/ET_box_per_aghi"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
                 android:layout_gravity="center"
                 android:text="guanti da lavoro"/>
             <EditText
-                android:id="@+id/guanti_da_lavoro"
+                android:id="@+id/ET_guanti_da_lavoro"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
                 android:layout_gravity="center"
                 android:text="padella"/>
             <EditText
-                android:id="@+id/padella"
+                android:id="@+id/ET_padella"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
                 android:layout_gravity="center"
                 android:text="pappagallo"/>
             <EditText
-                android:id="@+id/pappagallo"
+                android:id="@+id/ET_pappagallo"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
                 android:layout_gravity="center"
                 android:text="lenzuola"/>
             <EditText
-                android:id="@+id/lenzuola"
+                android:id="@+id/ET_lenzuola"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -104,7 +104,7 @@
                 android:layout_gravity="center"
                 android:text="sacchetti rifiuti"/>
             <EditText
-                android:id="@+id/sacchetti_rifiuti"
+                android:id="@+id/ET_sacchetti_rifiuti"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -113,7 +113,14 @@
                 android:text="0"
                 />
         </TableRow>
-
+        <TableRow>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/save"
+                android:layout_gravity="center"
+                android:id="@+id/B_save"/>
+        </TableRow>
     </TableLayout>
 
 
