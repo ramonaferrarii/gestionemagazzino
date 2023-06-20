@@ -84,7 +84,7 @@ public class MainSpaceFragment extends Fragment {
                 } else {
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                     UstioneFragment childFragment = new UstioneFragment();
-                    fragmentTransaction.replace(R.id.kitambuFragmentContainer, childFragment)
+                    fragmentTransaction.replace(R.id.UstioneFragmentContainer, childFragment)
                             .setReorderingAllowed(true)
                             .addToBackStack("Ustione")
                             .commit();
