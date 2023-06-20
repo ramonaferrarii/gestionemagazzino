@@ -16,6 +16,7 @@
     <string name="DPI">D.P.I.</string>
     <string name="trauma">Trauma</string>
     <string name="frontSpace">Vano Guida</string>
+    <string name="save">Salva</string>
     <!-- permessi per localizzazione-->
     <string name="neededPermissions"> Consenti autorizzazione della posizione?</string>
     <string name="grantPermission"> Consento </string>

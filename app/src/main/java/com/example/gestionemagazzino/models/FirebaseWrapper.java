@@ -1,16 +1,27 @@
 
 package com.example.gestionemagazzino.models;
-// si occupa gestire il login (copia e incolla di pm2023)
+
 
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FieldValue;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -106,6 +117,43 @@ import java.lang.reflect.Method;
             }
         }
 
+        public static class RTDatabase{
+            private final static String TAG = RTDatabase.class.getCanonicalName();
+
+            private static final String CHILD = "Magazzino";
+
+            private FirebaseFirestore getDb(){
+                FirebaseFirestore ref =
+                        FirebaseFirestore.getInstance();
+
+
+                return ref;
+            }
+
+
+            public void updateDbData(String doc, String key, int value){
+                //get reference to specified document
+                DocumentReference docRef = getDb().collection(CHILD).document(doc);
+                docRef
+                        .update(key, FieldValue.increment(value))
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                Log.d(TAG, "DocumentSnapshot successfully updated");
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.w(TAG, "Error updating document", e);
+                            }
+                        });
+
+            }
+        }
+
     }
+
+
 
 
