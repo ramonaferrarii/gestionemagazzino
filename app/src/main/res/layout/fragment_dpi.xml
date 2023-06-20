@@ -19,7 +19,7 @@
                 android:layout_gravity="center"
                 android:text="guanti in nitrile"/>
             <EditText
-                android:id="@+id/guanti_in_nitrile"
+                android:id="@+id/ET_guanti_in_nitrile"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
                 android:layout_gravity="center"
                 android:text="caschi di protezione"/>
             <EditText
-                android:id="@+id/caschi_di_protezione"
+                android:id="@+id/ET_caschi_di_protezione"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
                 android:layout_gravity="center"
                 android:text="copriscarpe"/>
             <EditText
-                android:id="@+id/copriscarpe"
+                android:id="@+id/ET_copriscarpe"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
                 android:layout_gravity="center"
                 android:text="mascherine chirurgiche"/>
             <EditText
-                android:id="@+id/mascherine_chirurgiche"
+                android:id="@+id/ET_mascherine_chirurgiche"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
                 android:layout_gravity="center"
                 android:text="FFP2"/>
             <EditText
-                android:id="@+id/FFP2"
+                android:id="@+id/ET_FFP2"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -104,7 +104,7 @@
                 android:layout_gravity="center"
                 android:text="visiere"/>
             <EditText
-                android:id="@+id/visiere"
+                android:id="@+id/ET_visiere"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -112,6 +112,14 @@
                 android:inputType="number"
                 android:text="0"
                 />
+        </TableRow>
+        <TableRow>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/save"
+                android:layout_gravity="center"
+                android:id="@+id/B_save"/>
         </TableRow>
 
 
