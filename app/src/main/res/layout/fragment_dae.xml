@@ -17,9 +17,9 @@
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
                     android:layout_gravity="center"
-                    android:text="D.A.E"/>
+                    android:text="DAE"/>
                 <EditText
-                    android:id="@+id/D.A.E."
+                    android:id="@+id/ET_dae"
                     android:layout_gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
                     android:layout_gravity="center"
                     android:text="garze non sterili"/>
                 <EditText
-                    android:id="@+id/garze_non_sterili"
+                    android:id="@+id/ET_garze_non_sterili"
                     android:layout_gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
                     android:layout_gravity="center"
                     android:text="piastre_monouso"/>
                 <EditText
-                    android:id="@+id/piastre_monouso"
+                    android:id="@+id/ET_piastre_monouso"
                     android:layout_gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
                     android:layout_gravity="center"
                     android:text="rasoio"/>
                 <EditText
-                    android:id="@+id/rasoio"
+                    android:id="@+id/ET_rasoio"
                     android:layout_gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -78,6 +78,14 @@
                     android:inputType="number"
                     android:text="0"
                     />
+            </TableRow>
+            <TableRow>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/save"
+                    android:layout_gravity="center"
+                    android:id="@+id/B_save"/>
             </TableRow>
 
         </TableLayout>

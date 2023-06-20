@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/DpiFragmentContainer"
+    android:id="@+id/MedicazioneFragmentContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.DpiFragment">
+    tools:context=".fragments.MedicazioneFragment">
 
 
     <TableLayout
@@ -17,15 +17,15 @@
                 android:layout_height="match_parent"
                 android:layout_width="match_parent"
                 android:layout_gravity="center"
-                android:text="guanti in nitrile"/>
+                android:text="acqua ossigenata"/>
             <EditText
-                android:id="@+id/ET_guanti_in_nitrile"
+                android:id="@+id/acqua_ossigenata"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="number"
-                android:text="0"
+                android:hint="0"
                 />
         </TableRow>
         <TableRow>
@@ -34,15 +34,15 @@
                 android:layout_height="match_parent"
                 android:layout_width="match_parent"
                 android:layout_gravity="center"
-                android:text="caschi di protezione"/>
+                android:text="benda coesiva"/>
             <EditText
-                android:id="@+id/ET_caschi_di_protezione"
+                android:id="@+id/benda_coesiva"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="number"
-                android:text="0"
+                android:hint="0"
                 />
         </TableRow>
         <TableRow>
@@ -51,15 +51,15 @@
                 android:layout_height="match_parent"
                 android:layout_width="match_parent"
                 android:layout_gravity="center"
-                android:text="copriscarpe"/>
+                android:text="benda tampone"/>
             <EditText
-                android:id="@+id/ET_copriscarpe"
+                android:id="@+id/benda_tampone"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="number"
-                android:text="0"
+                android:hint="0"
                 />
         </TableRow>
         <TableRow>
@@ -68,15 +68,15 @@
                 android:layout_height="match_parent"
                 android:layout_width="match_parent"
                 android:layout_gravity="center"
-                android:text="mascherine chirurgiche"/>
+                android:text="cerotti"/>
             <EditText
-                android:id="@+id/ET_mascherine_chirurgiche"
+                android:id="@+id/cerotti"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="number"
-                android:text="0"
+                android:hint="0"
                 />
         </TableRow>
         <TableRow>
@@ -85,44 +85,17 @@
                 android:layout_height="match_parent"
                 android:layout_width="match_parent"
                 android:layout_gravity="center"
-                android:text="FFP2"/>
+                android:text="tourniquet"/>
             <EditText
-                android:id="@+id/ET_FFP2"
+                android:id="@+id/toruniquet"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="number"
-                android:text="0"
+                android:hint="0"
                 />
         </TableRow>
-        <TableRow>
-            <TextView
-                android:layout_marginTop="10dp"
-                android:layout_height="match_parent"
-                android:layout_width="match_parent"
-                android:layout_gravity="center"
-                android:text="visiere"/>
-            <EditText
-                android:id="@+id/ET_visiere"
-                android:layout_gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="number"
-                android:text="0"
-                />
-        </TableRow>
-        <TableRow>
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/save"
-                android:layout_gravity="center"
-                android:id="@+id/B_save"/>
-        </TableRow>
-
-
 
     </TableLayout>
 

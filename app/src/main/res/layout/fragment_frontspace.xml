@@ -19,7 +19,7 @@
                 android:layout_gravity="center"
                 android:text="rapportino"/>
             <EditText
-                android:id="@+id/rapportino"
+                android:id="@+id/ET_rapportino"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
                 android:layout_gravity="center"
                 android:text="pulsiosimetro"/>
             <EditText
-                android:id="@+id/pulsiosimetro"
+                android:id="@+id/ET_pulsiosimetro"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
                 android:layout_gravity="center"
                 android:text="fonendoscopio"/>
             <EditText
-                android:id="@+id/fonendoscopio"
+                android:id="@+id/ET_fonendoscopio"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
                 android:layout_gravity="center"
                 android:text="sfigmomanometro"/>
             <EditText
-                android:id="@+id/sfigmomanometro"
+                android:id="@+id/ET_sfigmomanometro"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
                 android:layout_gravity="center"
                 android:text="termometro timpanico"/>
             <EditText
-                android:id="@+id/termometro_timpanico"
+                android:id="@+id/ET_termometro_timpanico"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -104,7 +104,7 @@
                 android:layout_gravity="center"
                 android:text="torcia"/>
             <EditText
-                android:id="@+id/torcia"
+                android:id="@+id/ET_torcia"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -112,6 +112,14 @@
                 android:inputType="number"
                 android:text="0"
                 />
+        </TableRow>
+        <TableRow>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/save"
+                android:layout_gravity="center"
+                android:id="@+id/B_save"/>
         </TableRow>
 
 

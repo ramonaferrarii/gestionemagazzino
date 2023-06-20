@@ -19,7 +19,7 @@
                 android:layout_gravity="center"
                 android:text="collare ped"/>
             <EditText
-                android:id="@+id/collare_ped"
+                android:id="@+id/ET_collare_ped"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
                 android:layout_gravity="center"
                 android:text="cuscinetti fermacapo"/>
             <EditText
-                android:id="@+id/cuscinetti_fermacapo"
+                android:id="@+id/ET_cuscinetti_fermacapo"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
                 android:layout_gravity="center"
                 android:text="ragno pediatrico"/>
             <EditText
-                android:id="@+id/ragno_pediatrico"
+                android:id="@+id/ET_ragno_pediatrico"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
                 android:layout_gravity="center"
                 android:text="coperta isotermica"/>
             <EditText
-                android:id="@+id/coperta_isotermica"
+                android:id="@+id/ET_coperta_isotermica"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
                 android:layout_gravity="center"
                 android:text="fisiologica"/>
             <EditText
-                android:id="@+id/fisiologica"
+                android:id="@+id/ET_fisiologica"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -95,6 +95,14 @@
                 android:inputType="number"
                 android:text="0"
                 />
+        </TableRow>
+        <TableRow>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/save"
+                android:layout_gravity="center"
+                android:id="@+id/B_save"/>
         </TableRow>
 
     </TableLayout>

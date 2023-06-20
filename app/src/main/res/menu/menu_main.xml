@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/myprofile"
+        android:icon="@drawable/baseline_menu"
+        android:title="@string/myprofile"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/help"
+        android:icon="@drawable/baseline_help_24"
+        android:title="@string/Help" />
+</menu>

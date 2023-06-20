@@ -18,7 +18,7 @@ import com.example.gestionemagazzino.R;
  * Use the {@link MainSpaceFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MainSpaceFragment extends Fragment {
+public class BackpackFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -29,7 +29,7 @@ public class MainSpaceFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public MainSpaceFragment() {
+    public BackpackFragment() {
         // Required empty public constructor
     }
 
@@ -67,56 +67,54 @@ public class MainSpaceFragment extends Fragment {
         //return inflater.inflate(R.layout.fragment_main_space, container, false);
 
         // creazione dei listener per i bottoni
-        View externalView = inflater.inflate(R.layout.fragment_main_space, container, false);
-        Button buttonUstione = externalView.findViewById(R.id.B_ustione);
-        Button buttonParto = externalView.findViewById(R.id.B_parto);
+        View externalView = inflater.inflate(R.layout.fragment_backpack, container, false);
+        Button buttonkitambu = externalView.findViewById(R.id.B_kitambu);
+        Button buttonmedicazione = externalView.findViewById(R.id.B_medicazione);
 
         // se schiaccio un bottone piuttosto che un altro vediamo cosa succede:
-        buttonUstione.setOnClickListener(new View.OnClickListener() {
+        buttonkitambu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentManager fragmentManager = getParentFragmentManager();
-                Fragment fragment = fragmentManager.findFragmentById(R.id.UstioneFragmentContainer);
+                Fragment fragment = fragmentManager.findFragmentById(R.id.kitambuFragmentContainer);
                 if (fragment != null && fragment.isVisible()) {
                     fragmentManager.beginTransaction().hide(fragment).commit();
-                    View spaceView = externalView.findViewById(R.id.UstioneFragmentContainer);
+                    View spaceView = externalView.findViewById(R.id.kitambuFragmentContainer);
                     spaceView.setVisibility(View.GONE);
                 } else {
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    UstioneFragment childFragment = new UstioneFragment();
+                    KitAmbuFragment childFragment = new KitAmbuFragment();
                     fragmentTransaction.replace(R.id.kitambuFragmentContainer, childFragment)
                             .setReorderingAllowed(true)
-                            .addToBackStack("Ustione")
+                            .addToBackStack("Kit Ambu")
                             .commit();
-                    View spaceView = externalView.findViewById(R.id.UstioneFragmentContainer);
+                    View spaceView = externalView.findViewById(R.id.kitambuFragmentContainer);
                     spaceView.setVisibility(View.VISIBLE);
                 }
             }
         });
 
-        buttonParto.setOnClickListener(new View.OnClickListener() {
+        buttonmedicazione.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentManager fragmentManager = getParentFragmentManager();
-                Fragment fragment = fragmentManager.findFragmentById(R.id.PartoFragmentContainer);
+                Fragment fragment = fragmentManager.findFragmentById(R.id.MedicazioneFragmentContainer);
                 if (fragment != null && fragment.isVisible()) {
                     fragmentManager.beginTransaction().hide(fragment).commit();
-                    View spaceView = externalView.findViewById(R.id.PartoFragmentContainer);
+                    View spaceView = externalView.findViewById(R.id.MedicazioneFragmentContainer);
                     spaceView.setVisibility(View.GONE);
                 } else {
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    PartoFragment childFragment = new PartoFragment();
-                    fragmentTransaction.replace(R.id.PartoFragmentContainer, childFragment)
+                    MedicazioneFragment childFragment = new MedicazioneFragment();
+                    fragmentTransaction.replace(R.id.MedicazioneFragmentContainer, childFragment)
                             .setReorderingAllowed(true)
                             .addToBackStack("Parto")
                             .commit();
-                    View spaceView = externalView.findViewById(R.id.PartoFragmentContainer);
+                    View spaceView = externalView.findViewById(R.id.MedicazioneFragmentContainer);
                     spaceView.setVisibility(View.VISIBLE);
                 }
             }
         });
-
-
 
         return externalView;
     }
