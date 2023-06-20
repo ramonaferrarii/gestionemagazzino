@@ -21,6 +21,8 @@
     <string name="neededPermissions"> Consenti autorizzazione della posizione?</string>
     <string name="grantPermission"> Consento </string>
     <string name="notGrantPermission"> Non consento</string>
+    <string name="channel_name">Gestione Magazzino</string>
+    <string name="channel_description">usato per segnalare mancanza di oggetti nel magazzino</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
