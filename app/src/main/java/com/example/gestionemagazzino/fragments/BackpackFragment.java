@@ -76,14 +76,21 @@ public class BackpackFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentManager fragmentManager = getParentFragmentManager();
-                FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
-                KitAmbuFragment childFragment = new KitAmbuFragment();
-                fragmentTransaction.add(R.id.kitambuFragmentContainer, childFragment)
-                        .setReorderingAllowed(true)
-                        .addToBackStack("Ustione") // Name can be null
-                        .commit();
-                View spaceView=externalView.findViewById(R.id.kitambuFragmentContainer);
-                spaceView.setVisibility(View.VISIBLE);
+                Fragment fragment = fragmentManager.findFragmentById(R.id.kitambuFragmentContainer);
+                if (fragment != null && fragment.isVisible()) {
+                    fragmentManager.beginTransaction().hide(fragment).commit();
+                    View spaceView = externalView.findViewById(R.id.kitambuFragmentContainer);
+                    spaceView.setVisibility(View.GONE);
+                } else {
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    KitAmbuFragment childFragment = new KitAmbuFragment();
+                    fragmentTransaction.replace(R.id.kitambuFragmentContainer, childFragment)
+                            .setReorderingAllowed(true)
+                            .addToBackStack("Kit Ambu")
+                            .commit();
+                    View spaceView = externalView.findViewById(R.id.kitambuFragmentContainer);
+                    spaceView.setVisibility(View.VISIBLE);
+                }
             }
         });
 

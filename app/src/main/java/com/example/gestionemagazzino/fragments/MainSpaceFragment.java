@@ -76,14 +76,21 @@ public class MainSpaceFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentManager fragmentManager = getParentFragmentManager();
-                FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
-                UstioneFragment childFragment = new UstioneFragment();
-                fragmentTransaction.add(R.id.UstioneFragmentContainer, childFragment)
-                        .setReorderingAllowed(true)
-                        .addToBackStack("Ustione") // Name can be null
-                        .commit();
-                View spaceView=externalView.findViewById(R.id.UstioneFragmentContainer);
-                spaceView.setVisibility(View.VISIBLE);
+                Fragment fragment = fragmentManager.findFragmentById(R.id.UstioneFragmentContainer);
+                if (fragment != null && fragment.isVisible()) {
+                    fragmentManager.beginTransaction().hide(fragment).commit();
+                    View spaceView = externalView.findViewById(R.id.UstioneFragmentContainer);
+                    spaceView.setVisibility(View.GONE);
+                } else {
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    UstioneFragment childFragment = new UstioneFragment();
+                    fragmentTransaction.replace(R.id.kitambuFragmentContainer, childFragment)
+                            .setReorderingAllowed(true)
+                            .addToBackStack("Ustione")
+                            .commit();
+                    View spaceView = externalView.findViewById(R.id.UstioneFragmentContainer);
+                    spaceView.setVisibility(View.VISIBLE);
+                }
             }
         });
 
@@ -91,14 +98,21 @@ public class MainSpaceFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentManager fragmentManager = getParentFragmentManager();
-                FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
-                PartoFragment childFragment = new PartoFragment();
-                fragmentTransaction.add(R.id.PartoFragmentContainer, childFragment)
-                        .setReorderingAllowed(true)
-                        .addToBackStack("Parto") // Name can be null
-                        .commit();
-                View spaceView=externalView.findViewById(R.id.PartoFragmentContainer);
-                spaceView.setVisibility(View.VISIBLE);
+                Fragment fragment = fragmentManager.findFragmentById(R.id.PartoFragmentContainer);
+                if (fragment != null && fragment.isVisible()) {
+                    fragmentManager.beginTransaction().hide(fragment).commit();
+                    View spaceView = externalView.findViewById(R.id.PartoFragmentContainer);
+                    spaceView.setVisibility(View.GONE);
+                } else {
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    PartoFragment childFragment = new PartoFragment();
+                    fragmentTransaction.replace(R.id.PartoFragmentContainer, childFragment)
+                            .setReorderingAllowed(true)
+                            .addToBackStack("Parto")
+                            .commit();
+                    View spaceView = externalView.findViewById(R.id.PartoFragmentContainer);
+                    spaceView.setVisibility(View.VISIBLE);
+                }
             }
         });
 

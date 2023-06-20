@@ -85,133 +85,191 @@ public class ButtonsFragment extends Fragment  {
         // divisione di cosa succede nelle varie casistiche se schiaccio un bottone piuttosto che un altro
         buttonMainSpace.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 FragmentManager fragmentManager = getParentFragmentManager();
-                FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
-
-                MainSpaceFragment childFragment = new MainSpaceFragment();
-                fragmentTransaction.add(R.id.mainSpaceFragmentContainer, childFragment)
-                        .setReorderingAllowed(true)
-                        .addToBackStack("mainSpace") // Name can be null
-                        .commit();
-                View spaceView=externalView.findViewById(R.id.mainSpaceFragmentContainer);
-                spaceView.setVisibility(View.VISIBLE);
-
+                Fragment fragment = fragmentManager.findFragmentById(R.id.mainSpaceFragmentContainer);
+                if (fragment != null && fragment.isVisible()) {
+                    fragmentManager.beginTransaction().hide(fragment).commit();
+                    View spaceView = externalView.findViewById(R.id.mainSpaceFragmentContainer);
+                    spaceView.setVisibility(View.GONE);
+                } else {
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    MainSpaceFragment childFragment = new MainSpaceFragment();
+                    fragmentTransaction.replace(R.id.mainSpaceFragmentContainer, childFragment)
+                            .setReorderingAllowed(true)
+                            .addToBackStack("Main Space")
+                            .commit();
+                    View spaceView = externalView.findViewById(R.id.mainSpaceFragmentContainer);
+                    spaceView.setVisibility(View.VISIBLE);
+                }
             }
         });
         buttonAspiration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentManager fragmentManager = getParentFragmentManager();
-                FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
-
-                AspirationFragment childFragment = new AspirationFragment();
-                fragmentTransaction.add(R.id.AspirationFragmentContainer, childFragment)
-                        .setReorderingAllowed(true)
-                        .addToBackStack("Aspiration") // Name can be null
-                        .commit();
-                View spaceView=externalView.findViewById(R.id.AspirationFragmentContainer);
-                spaceView.setVisibility(View.VISIBLE);
+                Fragment fragment = fragmentManager.findFragmentById(R.id.AspirationFragmentContainer);
+                if (fragment != null && fragment.isVisible()) {
+                    fragmentManager.beginTransaction().hide(fragment).commit();
+                    View spaceView = externalView.findViewById(R.id.AspirationFragmentContainer);
+                    spaceView.setVisibility(View.GONE);
+                } else {
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    AspirationFragment childFragment = new AspirationFragment();
+                    fragmentTransaction.replace(R.id.AspirationFragmentContainer, childFragment)
+                            .setReorderingAllowed(true)
+                            .addToBackStack("Aspiration")
+                            .commit();
+                    View spaceView = externalView.findViewById(R.id.AspirationFragmentContainer);
+                    spaceView.setVisibility(View.VISIBLE);
+                }
             }
         });
         buttonDae.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentManager fragmentManager = getParentFragmentManager();
-                FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
-                DaeFragment childFragment = new DaeFragment();
-                fragmentTransaction.add(R.id.DaeFragmentContainer, childFragment)
-                        .setReorderingAllowed(true)
-                        .addToBackStack("Dae") // Name can be null
-                        .commit();
-                View spaceView=externalView.findViewById(R.id.DaeFragmentContainer);
-                spaceView.setVisibility(View.VISIBLE);
+                Fragment fragment = fragmentManager.findFragmentById(R.id.DaeFragmentContainer);
+                if (fragment != null && fragment.isVisible()) {
+                    fragmentManager.beginTransaction().hide(fragment).commit();
+                    View spaceView = externalView.findViewById(R.id.DaeFragmentContainer);
+                    spaceView.setVisibility(View.GONE);
+                } else {
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    DaeFragment childFragment = new DaeFragment();
+                    fragmentTransaction.replace(R.id.DaeFragmentContainer, childFragment)
+                            .setReorderingAllowed(true)
+                            .addToBackStack("DAE")
+                            .commit();
+                    View spaceView = externalView.findViewById(R.id.DaeFragmentContainer);
+                    spaceView.setVisibility(View.VISIBLE);
+                }
             }
         });
         buttonChildpack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentManager fragmentManager = getParentFragmentManager();
-                FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
-                ChildpackFragment childFragment = new ChildpackFragment();
-                fragmentTransaction.add(R.id.ChildpackFragmentContainer, childFragment)
-                        .setReorderingAllowed(true)
-                        .addToBackStack("Childpack") // Name can be null
-                        .commit();
-                View spaceView=externalView.findViewById(R.id.ChildpackFragmentContainer);
-                spaceView.setVisibility(View.VISIBLE);
+                Fragment fragment = fragmentManager.findFragmentById(R.id.ChildpackFragmentContainer);
+                if (fragment != null && fragment.isVisible()) {
+                    fragmentManager.beginTransaction().hide(fragment).commit();
+                    View spaceView = externalView.findViewById(R.id.ChildpackFragmentContainer);
+                    spaceView.setVisibility(View.GONE);
+                } else {
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    ChildpackFragment childFragment = new ChildpackFragment();
+                    fragmentTransaction.replace(R.id.ChildpackFragmentContainer, childFragment)
+                            .setReorderingAllowed(true)
+                            .addToBackStack("Childpack")
+                            .commit();
+                    View spaceView = externalView.findViewById(R.id.ChildpackFragmentContainer);
+                    spaceView.setVisibility(View.VISIBLE);
+                }
             }
         });
         buttonMisc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentManager fragmentManager = getParentFragmentManager();
-                FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
-                MiscFragment childFragment = new MiscFragment();
-                fragmentTransaction.add(R.id.MiscFragmentContainer, childFragment)
-                        .setReorderingAllowed(true)
-                        .addToBackStack("Misc") // Name can be null
-                        .commit();
-                View spaceView=externalView.findViewById(R.id.MiscFragmentContainer);
-                spaceView.setVisibility(View.VISIBLE);
+                Fragment fragment = fragmentManager.findFragmentById(R.id.MiscFragmentContainer);
+                if (fragment != null && fragment.isVisible()) {
+                    fragmentManager.beginTransaction().hide(fragment).commit();
+                    View spaceView = externalView.findViewById(R.id.MiscFragmentContainer);
+                    spaceView.setVisibility(View.GONE);
+                } else {
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    MiscFragment childFragment = new MiscFragment();
+                    fragmentTransaction.replace(R.id.MiscFragmentContainer, childFragment)
+                            .setReorderingAllowed(true)
+                            .addToBackStack("Misc")
+                            .commit();
+                    View spaceView = externalView.findViewById(R.id.MiscFragmentContainer);
+                    spaceView.setVisibility(View.VISIBLE);
+                }
             }
         });
         buttonDpi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentManager fragmentManager = getParentFragmentManager();
-                FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
-                DpiFragment childFragment = new DpiFragment();
-                fragmentTransaction.add(R.id.DpiFragmentContainer, childFragment)
-                        .setReorderingAllowed(true)
-                        .addToBackStack("Dpi") // Name can be null
-                        .commit();
-                View spaceView=externalView.findViewById(R.id.DpiFragmentContainer);
-                spaceView.setVisibility(View.VISIBLE);
+                Fragment fragment = fragmentManager.findFragmentById(R.id.DpiFragmentContainer);
+                if (fragment != null && fragment.isVisible()) {
+                    fragmentManager.beginTransaction().hide(fragment).commit();
+                    View spaceView = externalView.findViewById(R.id.DpiFragmentContainer);
+                    spaceView.setVisibility(View.GONE);
+                } else {
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    DpiFragment childFragment = new DpiFragment();
+                    fragmentTransaction.replace(R.id.DpiFragmentContainer, childFragment)
+                            .setReorderingAllowed(true)
+                            .addToBackStack("Dpi")
+                            .commit();
+                    View spaceView = externalView.findViewById(R.id.DpiFragmentContainer);
+                    spaceView.setVisibility(View.VISIBLE);
+                }
             }
         });
         buttonFrontspace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentManager fragmentManager = getParentFragmentManager();
-                FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
-                FrontspaceFragment childFragment = new FrontspaceFragment();
-                fragmentTransaction.add(R.id.FrontspaceFragmentContainer, childFragment)
-                        .setReorderingAllowed(true)
-                        .addToBackStack("Frontspace") // Name can be null
-                        .commit();
-                View spaceView=externalView.findViewById(R.id.FrontspaceFragmentContainer);
-                spaceView.setVisibility(View.VISIBLE);
+                Fragment fragment = fragmentManager.findFragmentById(R.id.FrontspaceFragmentContainer);
+                if (fragment != null && fragment.isVisible()) {
+                    fragmentManager.beginTransaction().hide(fragment).commit();
+                    View spaceView = externalView.findViewById(R.id.FrontspaceFragmentContainer);
+                    spaceView.setVisibility(View.GONE);
+                } else {
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    FrontspaceFragment childFragment = new FrontspaceFragment();
+                    fragmentTransaction.replace(R.id.FrontspaceFragmentContainer, childFragment)
+                            .setReorderingAllowed(true)
+                            .addToBackStack("Frontspace")
+                            .commit();
+                    View spaceView = externalView.findViewById(R.id.FrontspaceFragmentContainer);
+                    spaceView.setVisibility(View.VISIBLE);
+                }
             }
         });
         buttonTrauma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentManager fragmentManager = getParentFragmentManager();
-                FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
-                TraumaFragment childFragment = new TraumaFragment();
-                fragmentTransaction.add(R.id.TraumaFragmentContainer, childFragment)
-                        .setReorderingAllowed(true)
-                        .addToBackStack("Trauma") // Name can be null
-                        .commit();
-                View spaceView=externalView.findViewById(R.id.TraumaFragmentContainer);
-                spaceView.setVisibility(View.VISIBLE);
+                Fragment fragment = fragmentManager.findFragmentById(R.id.TraumaFragmentContainer);
+                if (fragment != null && fragment.isVisible()) {
+                    fragmentManager.beginTransaction().hide(fragment).commit();
+                    View spaceView = externalView.findViewById(R.id.TraumaFragmentContainer);
+                    spaceView.setVisibility(View.GONE);
+                } else {
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    TraumaFragment childFragment = new TraumaFragment();
+                    fragmentTransaction.replace(R.id.TraumaFragmentContainer, childFragment)
+                            .setReorderingAllowed(true)
+                            .addToBackStack("Trauma")
+                            .commit();
+                    View spaceView = externalView.findViewById(R.id.TraumaFragmentContainer);
+                    spaceView.setVisibility(View.VISIBLE);
+                }
             }
         });
         buttonBackpack.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 FragmentManager fragmentManager = getParentFragmentManager();
-                FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
-
-                BackpackFragment childFragment = new BackpackFragment();
-                fragmentTransaction.add(R.id.BackpackFragmentContainer, childFragment)
-                        .setReorderingAllowed(true)
-                        .addToBackStack("mainSpace") // Name can be null
-                        .commit();
-                View spaceView=externalView.findViewById(R.id.BackpackFragmentContainer);
-                spaceView.setVisibility(View.VISIBLE);
-
+                Fragment fragment = fragmentManager.findFragmentById(R.id.BackpackFragmentContainer);
+                if (fragment != null && fragment.isVisible()) {
+                    fragmentManager.beginTransaction().hide(fragment).commit();
+                    View spaceView = externalView.findViewById(R.id.BackpackFragmentContainer);
+                    spaceView.setVisibility(View.GONE);
+                } else {
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    BackpackFragment childFragment = new BackpackFragment();
+                    fragmentTransaction.replace(R.id.BackpackFragmentContainer, childFragment)
+                            .setReorderingAllowed(true)
+                            .addToBackStack("Backpack")
+                            .commit();
+                    View spaceView = externalView.findViewById(R.id.BackpackFragmentContainer);
+                    spaceView.setVisibility(View.VISIBLE);
+                }
             }
         });
 
