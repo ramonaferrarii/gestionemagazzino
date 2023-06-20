@@ -4,16 +4,19 @@ package com.example.gestionemagazzino.models;
 import android.Manifest;
 import android.app.Activity;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.util.Log;
 
+import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class PermissionManager {
-    private final static String[] NEEDED_PERMISSIONS = {Manifest.permission.ACCESS_COARSE_LOCATION};
+    private final static String[] NEEDED_PERMISSIONS = {Manifest.permission.ACCESS_COARSE_LOCATION,"."};
     private final static String TAG = PermissionManager.class.getCanonicalName();
 
     private final Activity activity;
@@ -25,6 +28,8 @@ public class PermissionManager {
     public boolean askNeededPermissions(int requestCode, boolean performRequest) {
         // creo lista nuova dove andrò a mettere i permessi che l'utente non mi ha dato
         List<String> missingPermissions = new ArrayList<>();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+            NEEDED_PERMISSIONS[1]=Manifest.permission.POST_NOTIFICATIONS;
 
         for (String permission : NEEDED_PERMISSIONS) {
             // se utente accetta entro in primo if
