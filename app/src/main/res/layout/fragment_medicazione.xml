@@ -19,7 +19,7 @@
                 android:layout_gravity="center"
                 android:text="acqua ossigenata"/>
             <EditText
-                android:id="@+id/acqua_ossigenata"
+                android:id="@+id/ET_acqua_ossigenata"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
                 android:layout_gravity="center"
                 android:text="benda coesiva"/>
             <EditText
-                android:id="@+id/benda_coesiva"
+                android:id="@+id/ET_benda_coesiva"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
                 android:layout_gravity="center"
                 android:text="benda tampone"/>
             <EditText
-                android:id="@+id/benda_tampone"
+                android:id="@+id/ET_benda_tampone"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
                 android:layout_gravity="center"
                 android:text="cerotti"/>
             <EditText
-                android:id="@+id/cerotti"
+                android:id="@+id/ET_cerotti"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
                 android:layout_gravity="center"
                 android:text="tourniquet"/>
             <EditText
-                android:id="@+id/toruniquet"
+                android:id="@+id/ET_toruniquet"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -95,6 +95,14 @@
                 android:inputType="number"
                 android:hint="0"
                 />
+        </TableRow>
+        <TableRow>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/save"
+                android:layout_gravity="center"
+                android:id="@+id/B_save"/>
         </TableRow>
 
     </TableLayout>

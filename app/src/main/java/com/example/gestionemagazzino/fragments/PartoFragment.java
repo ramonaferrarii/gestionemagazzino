@@ -86,9 +86,26 @@ public class PartoFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 HashMap<String, Integer> editTextValues= new HashMap<>();
-                for(int i=0;i<4;i++)
-                    editTextValues.put(dbKeys[i], Integer.parseInt(editTextsList.get(i).getText().toString()));
+                for(int i=0;i<4;i++) {
+                    String text = editTextsList.get(i).getText().toString().trim();
+                    if (!text.isEmpty()) {
+                        try {
+                            int value = Integer.parseInt(text);
+                            editTextValues.put(dbKeys[i], value);
+                        } catch (NumberFormatException e) {
+                            e.printStackTrace();
+                            CharSequence msg = "Il valore inserito non è un numero valido.";
+                            Toast.makeText(externalView.getContext(), msg, Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                    }
+                }
 
+                if (editTextValues.isEmpty()) {
+                    CharSequence msg = "Il form non può essere vuoto.";
+                    Toast.makeText(externalView.getContext(), msg, Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 FirebaseWrapper.RTDatabase RTdb = new FirebaseWrapper.RTDatabase();
                 for (Map.Entry<String, Integer> entry : editTextValues.entrySet()){
@@ -98,8 +115,7 @@ public class PartoFragment extends Fragment {
                     editText.setText("0");
                 CharSequence msg="parametri salvati";
                 Toast.makeText(externalView.getContext(), msg, Toast.LENGTH_SHORT).show();
-                //TODO: handle the case where the user submits an empty editText
-            }
+            };
         });
         return externalView;
     }

@@ -19,7 +19,7 @@
                 android:layout_gravity="center"
                 android:text="filtro antibatterico"/>
             <EditText
-                android:id="@+id/filtro_antibatterico"
+                android:id="@+id/ET_filtro_antibatterico"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
                 android:layout_gravity="center"
                 android:text="pallone ambu"/>
             <EditText
-                android:id="@+id/pallone_ambu"
+                android:id="@+id/ET_pallone_ambu"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
                 android:layout_gravity="center"
                 android:text="reservoir"/>
             <EditText
-                android:id="@+id/reservoir"
+                android:id="@+id/ET_reservoir"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
                 android:layout_gravity="center"
                 android:text="masch. ambu"/>
             <EditText
-                android:id="@+id/masch_ambu"
+                android:id="@+id/ET_masch_ambu"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
                 android:layout_gravity="center"
                 android:text="can. di guedel"/>
             <EditText
-                android:id="@+id/can_di_guedel"
+                android:id="@+id/ET_can_di_guedel"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -95,6 +95,14 @@
                 android:inputType="number"
                 android:hint="0"
                 />
+        </TableRow>
+        <TableRow>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/save"
+                android:layout_gravity="center"
+                android:id="@+id/B_save"/>
         </TableRow>
 
     </TableLayout>
