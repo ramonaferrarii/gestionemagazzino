@@ -47,7 +47,8 @@ public class MyBackgroundWorker extends Worker{
                         }
                         String obj= String.join(", ",objs);
                         //notification function
-                        SendNotification("oggetto in esaurimento: "+obj);
+                        if(!objs.isEmpty())
+                            SendNotification("oggetto in esaurimento: "+obj);
                     }
                 }
             });

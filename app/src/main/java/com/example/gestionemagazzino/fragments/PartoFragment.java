@@ -79,7 +79,6 @@ public class PartoFragment extends Fragment {
         editTextsList.add(externalView.findViewById(R.id.ET_guanti_in_lattice_sterili));
         editTextsList.add(externalView.findViewById(R.id.ET_rotolo_cerotto));
         editTextsList.add(externalView.findViewById(R.id.ET_pinzetta_ombelicale));
-        editTextsList.add(externalView.findViewById(R.id.ET_pinzetta_ombelicale));
         editTextsList.add(externalView.findViewById(R.id.ET_pinza_clamp));
         Button saveButton = externalView.findViewById(R.id.B_save);
         saveButton.setOnClickListener(new View.OnClickListener() {
