@@ -18,8 +18,8 @@
     <string name="frontSpace">Vano Guida</string>
     <string name="save">Salva</string>
     <!-- permessi per localizzazione-->
-    <string name="neededPermissions"> Consenti autorizzazione della posizione?</string>
-    <string name="grantPermission"> Consento </string>
+    <string name="neededPermissions"> Le notifiche sono necessarie al tracciamento delle risorse nel magazzino</string>
+    <string name="grantPermission"> Consenti </string>
     <string name="channel_name">Gestione Magazzino</string>
     <string name="channel_description">usato per segnalare mancanza di oggetti nel magazzino</string>
     <!-- TODO: Remove or change this placeholder text -->

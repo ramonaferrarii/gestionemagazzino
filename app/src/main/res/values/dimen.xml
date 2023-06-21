@@ -1,3 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="button_bottom_padding">1.5dp</dimen>
 </resources>

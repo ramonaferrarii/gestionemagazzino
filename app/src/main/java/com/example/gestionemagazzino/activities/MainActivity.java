@@ -23,6 +23,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.example.gestionemagazzino.R;
 import com.example.gestionemagazzino.fragments.ButtonsFragment;

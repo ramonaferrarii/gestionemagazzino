@@ -24,9 +24,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="kitambu"
-            android:background="@color/orange"
+            android:background="@drawable/roundedbutton"
             android:textColor="@android:color/black"
-            android:layout_marginBottom="0.5dp"/>
+            android:layout_marginBottom="@dimen/button_bottom_padding"/>
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/kitambuFragmentContainer"
@@ -40,9 +40,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="medicazione"
-            android:background="@color/red"
+            android:background="@drawable/roundedbutton"
             android:textColor="@android:color/black"
-            android:layout_marginBottom="0.5dp"/>
+            android:layout_marginBottom="@dimen/button_bottom_padding"/>
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/MedicazioneFragmentContainer"
