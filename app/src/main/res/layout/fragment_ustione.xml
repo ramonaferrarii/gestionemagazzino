@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="number"
-                android:hint="0"
+                android:text="0"
                 />
         </TableRow>
         <TableRow>
@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="number"
-                android:hint="0"
+                android:text="0"
                 />
         </TableRow>
         <TableRow>
@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="number"
-                android:hint="0"
+                android:text="0"
                 />
         </TableRow>
         <TableRow>
@@ -76,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="number"
-                android:hint="0"
+                android:text="0"
                 />
         </TableRow>
         <TableRow>

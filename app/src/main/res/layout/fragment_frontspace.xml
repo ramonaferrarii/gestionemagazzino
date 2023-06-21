@@ -34,9 +34,9 @@
                 android:layout_height="match_parent"
                 android:layout_width="match_parent"
                 android:layout_gravity="center"
-                android:text="pulsiosimetro"/>
+                android:text="pulsiossimetro"/>
             <EditText
-                android:id="@+id/ET_pulsiosimetro"
+                android:id="@+id/ET_pulsiossimetro"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

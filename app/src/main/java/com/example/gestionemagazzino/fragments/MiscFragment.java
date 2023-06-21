@@ -28,7 +28,7 @@ public class MiscFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private String[] dbKeys={"Box Per Aghi","Guanti Da Lavoro","Padella", "Pappagallo", "Lenzuola", "Sacchetti Rifiuti"};
+    private String[] dbKeys={"box aghi","guanti da lavoro","padella", "pappagallo", "lenzuola", "sacchetti rifiuti"};
 
     private ArrayList<EditText> editTextsList = new ArrayList<EditText>();
 
@@ -85,29 +85,25 @@ public class MiscFragment extends Fragment {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                HashMap<String, Integer> editTextValues= new HashMap<>();
-                boolean allEditTextsAreEmpty = true;
-                for(int i=0;i<4;i++) {
-                    String editTextValue = editTextsList.get(i).getText().toString();
-                    if(!editTextValue.isEmpty() && Integer.parseInt(editTextValue) != 0) {
-                        allEditTextsAreEmpty = false;
+                HashMap<String, Integer> editTextValues = new HashMap<>();
+                for (int i = 0; i < dbKeys.length; i++) {
+                    String text = editTextsList.get(i).getText().toString().trim();
+                    if (!text.isEmpty()) {
+                        int value = Integer.parseInt(text);
+                        editTextValues.put(dbKeys[i], value);
+                    } else {
+                        CharSequence msg = "Il form non può contenere elementi vuoti";
+                        Toast.makeText(externalView.getContext(), msg, Toast.LENGTH_SHORT).show();
+                        return;
                     }
-                    editTextValues.put(dbKeys[i], Integer.parseInt(editTextValue));
                 }
-
-                if(allEditTextsAreEmpty) {
-                    CharSequence msg = "il form non può essere vuoto.";
-                    Toast.makeText(externalView.getContext(), msg, Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
                 FirebaseWrapper.RTDatabase RTdb = new FirebaseWrapper.RTDatabase();
-                for (Map.Entry<String, Integer> entry : editTextValues.entrySet()){
-                    RTdb.updateDbData("Misc",entry.getKey(),entry.getValue());
-                }
+                for (Map.Entry<String, Integer> entry : editTextValues.entrySet())
+                    RTdb.updateDbData("Varie", entry.getKey(), entry.getValue());
+
                 for (EditText editText : editTextsList)
                     editText.setText("0");
-                CharSequence msg="parametri salvati";
+                CharSequence msg = "parametri salvati";
                 Toast.makeText(externalView.getContext(), msg, Toast.LENGTH_SHORT).show();
                 //TODO: handle the case where the user submits an empty editText
             }

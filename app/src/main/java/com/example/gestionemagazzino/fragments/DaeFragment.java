@@ -83,24 +83,21 @@ public class DaeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 HashMap<String, Integer> editTextValues= new HashMap<>();
-                boolean allEditTextsAreEmpty = true;
-                for(int i=0;i<4;i++) {
-                    String editTextValue = editTextsList.get(i).getText().toString();
-                    if(!editTextValue.isEmpty() && Integer.parseInt(editTextValue) != 0) {
-                        allEditTextsAreEmpty = false;
+                for (int i = 0; i < dbKeys.length; i++) {
+                    String text = editTextsList.get(i).getText().toString().trim();
+                    if (!text.isEmpty()) {
+                        int value = Integer.parseInt(text);
+                        editTextValues.put(dbKeys[i], value);
+                    } else {
+                        CharSequence msg = "Il form non può contenere elementi vuoti";
+                        Toast.makeText(externalView.getContext(), msg, Toast.LENGTH_SHORT).show();
+                        return;
                     }
-                    editTextValues.put(dbKeys[i], Integer.parseInt(editTextValue));
-                }
-
-                if(allEditTextsAreEmpty) {
-                    CharSequence msg = "il form non può essere vuoto.";
-                    Toast.makeText(externalView.getContext(), msg, Toast.LENGTH_SHORT).show();
-                    return;
                 }
 
                 FirebaseWrapper.RTDatabase RTdb = new FirebaseWrapper.RTDatabase();
                 for (Map.Entry<String, Integer> entry : editTextValues.entrySet()){
-                    RTdb.updateDbData("DAE",entry.getKey(),entry.getValue());
+                    RTdb.updateDbData("Defibrillatore",entry.getKey(),entry.getValue());
                 }
                 for (EditText editText : editTextsList)
                     editText.setText("0");

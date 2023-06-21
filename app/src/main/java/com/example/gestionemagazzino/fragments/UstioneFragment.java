@@ -84,26 +84,23 @@ public class UstioneFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 HashMap<String, Integer> editTextValues= new HashMap<>();
-                for(int i=0;i<4;i++) {
+                for(int i=0;i<dbKeys.length;i++) {
                     String text = editTextsList.get(i).getText().toString().trim();
                     if (!text.isEmpty()) {
-                        try {
                             int value = Integer.parseInt(text);
                             editTextValues.put(dbKeys[i], value);
-                        } catch (NumberFormatException e) {
-                            e.printStackTrace();
-                            CharSequence msg = "Il valore inserito non è un numero valido.";
-                            Toast.makeText(externalView.getContext(), msg, Toast.LENGTH_SHORT).show();
-                            return;
-                        }
                     }
+                    else {
+                        CharSequence msg = "Il form non può contenere elementi vuoti";
+                        Toast.makeText(externalView.getContext(), msg, Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
                 }
 
-                if (editTextValues.isEmpty()) {
-                    CharSequence msg = "Il form non può essere vuoto.";
-                    Toast.makeText(externalView.getContext(), msg, Toast.LENGTH_SHORT).show();
-                    return;
-                }
+
+
+
 
                 FirebaseWrapper.RTDatabase RTdb = new FirebaseWrapper.RTDatabase();
                 for (Map.Entry<String, Integer> entry : editTextValues.entrySet()){
