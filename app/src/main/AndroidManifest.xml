@@ -2,24 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- not dangerous permission (internet) -->
+    <!-- richiesta di PERMESSI: -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
-    <!-- permission for location-->
-
-    <!-- Always include this permission -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" android:minSdkVersion="33" />
 
-    <!-- uso del calendario DA TOGLIERE!!!!!
-    <uses-permission android:name="android.permission.READ_CALENDAR"/>
-    <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
-    <uses-permission-sdk-23 android:name="android.permission.READ_CALENDAR"/>
-    <uses-permission-sdk-23 android:name="android.permission.WRITE_CALENDAR"/> -->
-
-
-
+    <!-- definizione del'APP con i suoi componenti -->
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
