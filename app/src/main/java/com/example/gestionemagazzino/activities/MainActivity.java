@@ -26,6 +26,7 @@ import android.widget.Button;
 
 import com.example.gestionemagazzino.R;
 import com.example.gestionemagazzino.fragments.ButtonsFragment;
+import com.example.gestionemagazzino.fragments.HelpFragment;
 import com.example.gestionemagazzino.fragments.MyProfileFragment;
 import com.example.gestionemagazzino.models.MyBackgroundWorker;
 import com.example.gestionemagazzino.models.PermissionManager;
@@ -83,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public boolean onOptionsItemSelected(MenuItem item){
+    /*public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()) {
             case android.R.id.home:
                 finish();
@@ -91,14 +92,53 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
+*/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_main, menu);
         return true;
     }
-public void OnClick(View v) {
+
+
+    @Override
+    public void onBackPressed() {
+// torna indietro di un passo
+        super.onBackPressed();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.myprofile:
+            //azione da eseguire su MyProfile
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container_view, new MyProfileFragment());
+                fragmentTransaction.commit();
+                return true;
+            case R.id.help:
+            //azione da eseguire su Help
+                FragmentManager fragmentManager2 = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction2 = fragmentManager2.beginTransaction();
+                fragmentTransaction2.replace(R.id.fragment_container_view, new HelpFragment());
+                fragmentTransaction2.commit();
+                return true;
+            case android.R.id.home:
+                // tasto per tornare indietro
+                onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+
+
+
+    }
+
+
+/*public void OnClick(View v) {
         switch(v.getId()){
             case R.id.myprofile:
                 FragmentManager fragmentManager = getSupportFragmentManager();
@@ -114,7 +154,7 @@ public void OnClick(View v) {
 
 
         }
-}
+}*/
 
 }
 

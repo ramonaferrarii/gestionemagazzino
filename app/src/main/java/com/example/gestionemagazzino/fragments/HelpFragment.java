@@ -1,6 +1,5 @@
 package com.example.gestionemagazzino.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,15 +13,13 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.gestionemagazzino.R;
-import com.example.gestionemagazzino.activities.EnterActivity;
 import com.example.gestionemagazzino.models.FirebaseWrapper;
-import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MyProfileFragment extends Fragment {
+public class HelpFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,7 +31,7 @@ public class MyProfileFragment extends Fragment {
     private String mParam2;
 
 
-    public MyProfileFragment() {
+    public HelpFragment() {
         // Required empty public constructor
     }
 
@@ -47,8 +44,8 @@ public class MyProfileFragment extends Fragment {
      * @return A new instance of fragment AspirationFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static MyProfileFragment newInstance(String param1, String param2) {
-        MyProfileFragment fragment = new MyProfileFragment();
+    public static com.example.gestionemagazzino.fragments.HelpFragment newInstance(String param1, String param2) {
+        com.example.gestionemagazzino.fragments.HelpFragment fragment = new com.example.gestionemagazzino.fragments.HelpFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -66,21 +63,10 @@ public class MyProfileFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View externalView = inflater.inflate(R.layout.fragment_myprofile, container, false);
-        Button buttonLOGOUT = externalView.findViewById(R.id.B_LOGOUT);
-
-        buttonLOGOUT.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getActivity(), EnterActivity.class);
-                startActivity(intent);
-                requireActivity().finish();
-            }
-        });
-
-        return externalView;
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_help, container, false);
     }
 
 

@@ -5,11 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="11dp"
-        tools:srcCompat="@tools:sample/avatars" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:shadowColor="@color/green"
+            android:id="@+id/B_LOGOUT"
+            android:text="LOGOUT"
+            android:textColor="@color/white">
+
+        </Button>
+
+
+    </LinearLayout>
+"
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
