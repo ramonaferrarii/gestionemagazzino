@@ -17,7 +17,6 @@ import com.example.gestionemagazzino.activities.EnterActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import org.checkerframework.checker.units.qual.Area;
 
 public class MyProfileFragment extends Fragment {
 
@@ -61,11 +60,11 @@ public class MyProfileFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
+
+
     // per mostrare l'account con cui sono loggato
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     String userID = user.getEmail();
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View externalView = inflater.inflate(R.layout.fragment_myprofile, container, false);
@@ -78,7 +77,7 @@ public class MyProfileFragment extends Fragment {
         String userID = user.getEmail();
         userIDTextView.setText(userID);
 
-
+ //per effettuare il LOGOUT
         buttonLOGOUT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,21 +88,20 @@ public class MyProfileFragment extends Fragment {
             }
         });
 
+
+        // per accedere all'area riservata
         buttonAREARISERVATA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                AreaRiservataFragment fragment = new AreaRiservataFragment(); //crea un'istanza del fragmentB
-                FragmentManager fragmentManager = getFragmentManager(); //ottiene il FragmentManager
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction(); //ottiene il FragmentTransaction
-                fragmentTransaction.replace(R.id.fragment_container_view, fragment); //sostituisce il contenuto del container con il fragmentB
-                fragmentTransaction.addToBackStack(null); //aggiunge il fragment alla backstack
-                fragmentTransaction.commit(); //conferma la transazione
+                AreaRiservataFragment fragment = new AreaRiservataFragment();
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container_view, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
         });
-
-
-
 
         return externalView;
     }
