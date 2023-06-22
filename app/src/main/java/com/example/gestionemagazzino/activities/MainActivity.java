@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         WorkManager.getInstance(this).enqueue(workRequest);
 
-         // bottone per tornare indietro
+         // definzione di ActionBar che mi serve per il tasto per tornare indietro
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
@@ -84,15 +84,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /*public boolean onOptionsItemSelected(MenuItem item){
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-*/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
