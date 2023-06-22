@@ -21,8 +21,9 @@
     <string name="neededPermissions"> Consenti autorizzazione della posizione?</string>
     <string name="grantPermission"> Consento </string>
     <string name="channel_name">Gestione Magazzino</string>
-    <string name="channel_description">usato per segnalare mancanza di oggetti nel magazzino</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="channel_description">Usato per Segnalare Mancanza di Oggetti nel Magazzino</string>
+    <string name="logout"> Desideri effettuare il logout? </string>
     <string name="myprofile"> Il Mio Profilo </string>
     <string name="Help"> Aiuto </string>
+    <string name="yourprofile"> IL TUO PROFILO: </string>
 </resources>

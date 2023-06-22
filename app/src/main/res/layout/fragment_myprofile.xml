@@ -10,13 +10,43 @@
         android:layout_height="match_parent"
         android:orientation="vertical" >
 
-        <Button
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:shadowColor="@color/green"
+            android:text="@string/yourprofile"
+            android:textStyle="italic">
+        </TextView>
+
+        <TextView
+            android:id="@+id/userIDTextView"
+            android:layout_width="200dp"
+            android:layout_height="70dp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/userPasswordTextView"
+            android:layout_width="200dp"
+            android:layout_height="70dp">
+
+        </TextView>
+
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:text="@string/logout">
+        </TextView>
+
+        <Button
             android:id="@+id/B_LOGOUT"
-            android:text="LOGOUT"
-            android:textColor="@color/white">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LOGOUT">
 
         </Button>
 

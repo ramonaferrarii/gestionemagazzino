@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -17,6 +18,7 @@ import com.example.gestionemagazzino.R;
 import com.example.gestionemagazzino.activities.EnterActivity;
 import com.example.gestionemagazzino.models.FirebaseWrapper;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -64,11 +66,22 @@ public class MyProfileFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
+    // per mostrare l'account con cui sono loggato
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    String userID = user.getEmail();
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View externalView = inflater.inflate(R.layout.fragment_myprofile, container, false);
         Button buttonLOGOUT = externalView.findViewById(R.id.B_LOGOUT);
+
+        TextView userIDTextView = (TextView) externalView.findViewById(R.id.userIDTextView);
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String userID = user.getEmail();
+        userIDTextView.setText(userID);
+
 
         buttonLOGOUT.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +95,9 @@ public class MyProfileFragment extends Fragment {
 
         return externalView;
     }
+
+
+
 
 
 
