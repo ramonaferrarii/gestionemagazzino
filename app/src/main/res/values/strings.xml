@@ -26,4 +26,7 @@
     <string name="myprofile"> Il Mio Profilo </string>
     <string name="Help"> Aiuto </string>
     <string name="yourprofile"> IL TUO PROFILO: </string>
+    <string name="ReservedArea"> AREA RISERVATA</string>
+    <string name="DoYouWantTo"> Desideri accedere alla area riservata? </string>
+
 </resources>

@@ -15,24 +15,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/yourprofile"
-            android:textStyle="italic">
+            android:textStyle="bold">
         </TextView>
 
         <TextView
             android:id="@+id/userIDTextView"
             android:layout_width="200dp"
-            android:layout_height="70dp">
+            android:layout_height="30dp">
 
         </TextView>
-
-        <TextView
-            android:id="@+id/userPasswordTextView"
-            android:layout_width="200dp"
-            android:layout_height="70dp">
-
-        </TextView>
-
-
 
 
         <TextView
@@ -47,6 +38,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="LOGOUT">
+
+        </Button>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/DoYouWantTo"
+            android:textStyle="italic">
+        </TextView>
+
+        <Button
+            android:id="@+id/B_AREA_RISERVATA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ReservedArea">
 
         </Button>
 
