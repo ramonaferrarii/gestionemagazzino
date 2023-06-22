@@ -26,6 +26,7 @@ import android.widget.Button;
 
 import com.example.gestionemagazzino.R;
 import com.example.gestionemagazzino.fragments.ButtonsFragment;
+import com.example.gestionemagazzino.fragments.MyProfileFragment;
 import com.example.gestionemagazzino.models.MyBackgroundWorker;
 import com.example.gestionemagazzino.models.PermissionManager;
 
@@ -100,9 +101,14 @@ public class MainActivity extends AppCompatActivity {
 public void OnClick(View v) {
         switch(v.getId()){
             case R.id.myprofile:
-                 
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container_view, new MyProfileFragment());
+                fragmentTransaction.commit();
                 break;
+
             case R.id.help:
+
 
                 break;
 
