@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">gestionemagazzino</string>
-    <string name="goToLogin">"Do you already have an account? Click here and login!"</string>
+    <string name="goToLogin">"Hai già un account? Clicca qui e accedi</string>
     <string name="signup">Signup</string>
-    <string name="goToRegister">Not register? Click here to create a new account!</string>
-    <string name="insertPassword">Insert passwrod..</string>
-    <string name="insertEmail">Insert email address..</string>
-    <string name="insertPasswordAgain"> Insert password again.. </string>
-    <string name="login">LogIn</string>
+    <string name="goToRegister">Non sei ancora registrato? Clicca qui e registrati!</string>
+    <string name="insertPassword">Inserisci la password..</string>
+    <string name="insertEmail">Inserisci la tua EMail</string>
+    <string name="insertPasswordAgain"> Inserisci di nuovo la password </string>
+    <string name="login">LOGIN</string>
     <string name="mainSpace">Vano Principale</string>
     <string name="aspiraz">Aspirazione</string>
     <string name="dae">Defibrillatore</string>
@@ -28,5 +28,6 @@
     <string name="yourprofile"> IL TUO PROFILO: </string>
     <string name="ReservedArea"> AREA RISERVATA</string>
     <string name="DoYouWantTo"> Desideri accedere alla area riservata? </string>
+    <string name="areariservata"> Se desideri accedere alla area riservata inserisci la Password: </string>
 
 </resources>

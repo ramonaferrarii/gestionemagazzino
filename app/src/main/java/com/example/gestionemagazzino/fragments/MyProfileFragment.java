@@ -6,9 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -16,13 +14,10 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.gestionemagazzino.R;
 import com.example.gestionemagazzino.activities.EnterActivity;
-import com.example.gestionemagazzino.models.FirebaseWrapper;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import org.checkerframework.checker.units.qual.Area;
 
 public class MyProfileFragment extends Fragment {
 
@@ -75,6 +70,7 @@ public class MyProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View externalView = inflater.inflate(R.layout.fragment_myprofile, container, false);
         Button buttonLOGOUT = externalView.findViewById(R.id.B_LOGOUT);
+        Button buttonAREARISERVATA = externalView.findViewById(R.id.B_AREA_RISERVATA);
 
         TextView userIDTextView = (TextView) externalView.findViewById(R.id.userIDTextView);
 
@@ -92,6 +88,22 @@ public class MyProfileFragment extends Fragment {
                 requireActivity().finish();
             }
         });
+
+        buttonAREARISERVATA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                AreaRiservataFragment fragment = new AreaRiservataFragment(); //crea un'istanza del fragmentB
+                FragmentManager fragmentManager = getFragmentManager(); //ottiene il FragmentManager
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction(); //ottiene il FragmentTransaction
+                fragmentTransaction.replace(R.id.fragment_container_view, fragment); //sostituisce il contenuto del container con il fragmentB
+                fragmentTransaction.addToBackStack(null); //aggiunge il fragment alla backstack
+                fragmentTransaction.commit(); //conferma la transazione
+            }
+        });
+
+
+
 
         return externalView;
     }
