@@ -28,6 +28,6 @@
     <string name="yourprofile"> IL TUO PROFILO: </string>
     <string name="ReservedArea"> AREA RISERVATA</string>
     <string name="DoYouWantTo"> Desideri accedere alla area riservata? </string>
-    <string name="areariservata"> Se desideri accedere alla area riservata inserisci la Password: </string>
+    <string name="areariservata"> Inserire la password per accedere alla area riservata </string>
     <string name="numeri"> Numeri telefonici: </string>
 </resources>
