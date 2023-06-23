@@ -18,8 +18,8 @@
     <string name="frontSpace">Vano Guida</string>
     <string name="save">Salva</string>
     <!-- permessi per localizzazione-->
-    <string name="neededPermissions"> Consenti autorizzazione della posizione?</string>
-    <string name="grantPermission"> Consento </string>
+    <string name="neededPermissions"> Le notifiche sono necessarie al tracciamento delle risorse nel magazzino</string>
+    <string name="grantPermission"> Consenti </string>
     <string name="channel_name">Gestione Magazzino</string>
     <string name="channel_description">Usato per Segnalare Mancanza di Oggetti nel Magazzino</string>
     <string name="logout"> Desideri effettuare il logout? </string>
@@ -29,7 +29,5 @@
     <string name="ReservedArea"> AREA RISERVATA</string>
     <string name="DoYouWantTo"> Desideri accedere alla area riservata? </string>
     <string name="areariservata"> Se desideri accedere alla area riservata inserisci la Password: </string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <string name="numeri"> Numeri telefonici: </string>
 </resources>

@@ -14,6 +14,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingTop="30dp"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="-127dp">
 
@@ -30,10 +31,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+
                 android:text="@string/mainSpace"
-                android:background="@color/red"
+                android:background="@drawable/roundedbutton"
                 android:textColor="@android:color/black"
-                android:layout_marginBottom="0.5dp"/>
+                android:layout_marginBottom="@dimen/button_bottom_padding"/>
 
         <!--per non perdere i listener del button fragment ipotizzo di creare dei sottoframmenti per i sottomenu,
          per farlo creo dei container nel fragment, con
@@ -51,9 +53,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/aspiraz"
-                android:background="@color/red"
+                android:background="@drawable/roundedbutton"
                 android:textColor="@android:color/black"
-                android:layout_marginBottom="0.5dp"/>
+                android:layout_marginBottom="@dimen/button_bottom_padding"/>
 
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/AspirationFragmentContainer"
@@ -67,9 +69,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/dae"
-                android:background="@color/red"
+                android:background="@drawable/roundedbutton"
                 android:textColor="@android:color/black"
-                android:layout_marginBottom="0.5dp"/>
+                android:layout_marginBottom="@dimen/button_bottom_padding"/>
 
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/DaeFragmentContainer"
@@ -84,9 +86,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/backpack"
-                android:background="@color/red"
+                android:background="@drawable/roundedbutton"
                 android:textColor="@android:color/black"
-                android:layout_marginBottom="0.5dp"/>
+                android:layout_marginBottom="@dimen/button_bottom_padding"/>
 
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/BackpackFragmentContainer"
@@ -101,9 +103,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/childPack"
-                android:background="@color/red"
+                android:background="@drawable/roundedbutton"
                 android:textColor="@android:color/black"
-                android:layout_marginBottom="0.5dp"/>
+                android:layout_marginBottom="@dimen/button_bottom_padding"/>
 
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/ChildpackFragmentContainer"
@@ -117,9 +119,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/misc"
-                android:background="@color/red"
+                android:background="@drawable/roundedbutton"
                 android:textColor="@android:color/black"
-                android:layout_marginBottom="0.5dp"/>
+                android:layout_marginBottom="@dimen/button_bottom_padding"/>
 
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/MiscFragmentContainer"
@@ -133,9 +135,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/DPI"
-                android:background="@color/red"
+                android:background="@drawable/roundedbutton"
                 android:textColor="@android:color/black"
-                android:layout_marginBottom="0.5dp"/>
+                android:layout_marginBottom="@dimen/button_bottom_padding"/>
 
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/DpiFragmentContainer"
@@ -149,9 +151,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/trauma"
-                android:background="@color/red"
+                android:background="@drawable/roundedbutton"
                 android:textColor="@android:color/black"
-                android:layout_marginBottom="0.5dp"/>
+                android:layout_marginBottom="@dimen/button_bottom_padding"/>
 
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/TraumaFragmentContainer"
@@ -165,9 +167,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/frontSpace"
-                android:background="@color/red"
+                android:background="@drawable/roundedbutton"
                 android:textColor="@android:color/black"
-                android:layout_marginBottom="0.5dp"/>
+                android:layout_marginBottom="@dimen/button_bottom_padding"/>
 
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/FrontspaceFragmentContainer"
