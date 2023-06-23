@@ -4,11 +4,15 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import com.example.gestionemagazzino.models.FirebaseWrapper;
 
+import com.google.android.material.textfield.TextInputLayout;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatAutoCompleteTextView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,8 +20,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.gestionemagazzino.R;
 import com.example.gestionemagazzino.adapters.ItemAdapter;
 
+import org.checkerframework.checker.units.qual.A;
+
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class AreaRiservataFragment extends Fragment {
@@ -26,6 +33,8 @@ public class AreaRiservataFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+    private List<String> objectList;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -77,17 +86,36 @@ public class AreaRiservataFragment extends Fragment {
         FirebaseWrapper.RTDatabase db= new FirebaseWrapper.RTDatabase();
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         itemList = new ArrayList<>();
+        objectList = new ArrayList<>();
+
         db.readDbData(new FirebaseWrapper.RTDatabase.FirestoreCallback() {
             @Override
             public void onCallback(HashMap<String, Object> data) {
                 if(data!=null){
-                    for(Map.Entry<String,Object> entry : data.entrySet())
+                    for(Map.Entry<String,Object> entry : data.entrySet()){
+                        //for complete list of key-value pairs
                         itemList.add(entry.getKey()+" : "+entry.getValue());
+                        //for complete list of object in db for quantity updates (not to be reset)
+                        objectList.add((entry.getKey()));
+                    }
                     adapter = new ItemAdapter(itemList);
                     recyclerView.setAdapter(adapter);
                 }
             }
         });
+
+        /*TextInputLayout textInputLayout = view.findViewById(R.id.textInputLayout);
+        AppCompatAutoCompleteTextView autoCompleteTextView = view.findViewById(R.id.autoCompleteTextView);
+        String[] objectArray = objectList.toArray(new String[objectList.size()]);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(),android.R.layout.simple_dropdown_item_1line,objectArray);
+        autoCompleteTextView.setAdapter(adapter);
+        autoCompleteTextView.setThreshold(1); // Mostra suggerimenti dopo il primo carattere
+
+        // Opzionale: Aggiungi un listener per gestire la selezione dell'oggetto
+        //autoCompleteTextView.setOnItemClickListener((parent, view1, position, id) -> {
+         //   String selectedObject = (String) parent.getItemAtPosition(position);
+            // Gestisci la selezione dell'oggetto
+        //});*/
 
         return view;
     }

@@ -6,7 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -69,7 +71,9 @@ public class MyProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View externalView = inflater.inflate(R.layout.fragment_myprofile, container, false);
         Button buttonLOGOUT = externalView.findViewById(R.id.B_LOGOUT);
-        Button buttonAREARISERVATA = externalView.findViewById(R.id.B_AREA_RISERVATA);
+        EditText editText = externalView.findViewById(R.id.ET_Pass);
+        Button buttonAREARISERVATA = externalView.findViewById(R.id.B_ENTER_AR);
+
 
         TextView userIDTextView = (TextView) externalView.findViewById(R.id.userIDTextView);
 
@@ -93,22 +97,21 @@ public class MyProfileFragment extends Fragment {
         buttonAREARISERVATA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentManager fragmentManager = getChildFragmentManager();
-                Fragment fragment = fragmentManager.findFragmentById(R.id.AccessFragmentContainer);
-                if (fragment != null && fragment.isVisible()) {
-                    fragmentManager.beginTransaction().hide(fragment).commit();
-                    View spaceView = externalView.findViewById(R.id.AccessFragmentContainer);
-                    spaceView.setVisibility(View.GONE);
-                } else {
+                //password hardcodata solo a fini didattici, la versione finale dovrebbe conservare la password in remoto
+                String pass="admin";
+                if(editText.getText().toString().equals(pass)){
+                    AreaRiservataFragment fragment = new AreaRiservataFragment();
+                    FragmentManager fragmentManager = getParentFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    AccessFragment childFragment = new AccessFragment();
-                    fragmentTransaction.replace(R.id.AccessFragmentContainer, childFragment)
-                            .setReorderingAllowed(true)
-                            .addToBackStack("Main Space")
+                    fragmentTransaction
+                            .replace(R.id.fragment_container_view, fragment)
+                            .addToBackStack("AreaRiservata")
                             .commit();
-                    View spaceView = externalView.findViewById(R.id.AccessFragmentContainer);
-                    spaceView.setVisibility(View.VISIBLE);
+
                 }
+                else
+                    Toast.makeText(externalView.getContext(), "password incorretta", Toast.LENGTH_SHORT).show();
+
             }
         });
 
