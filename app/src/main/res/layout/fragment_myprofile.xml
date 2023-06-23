@@ -48,24 +48,36 @@
             android:text="@string/DoYouWantTo"
             android:textStyle="italic">
         </TextView>
-
-        <Button
-            android:id="@+id/B_AREA_RISERVATA"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/ReservedArea">
+            android:text="@string/areariservata"
+            android:textStyle="italic">
+        </TextView>
+
+        <EditText
+            android:id="@+id/ET_Pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="@string/insertPassword">
+
+        </EditText>
 
 
+
+        <Button
+            android:id="@+id/B_ENTER_AR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ENTER">
         </Button>
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/AccessFragmentContainer"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone"/>
+
+
 
 
     </LinearLayout>
-"
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
