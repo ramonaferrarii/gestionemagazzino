@@ -104,7 +104,7 @@ public class AreaRiservataFragment extends Fragment {
             }
         });
 
-        TextInputLayout textInputLayout = view.findViewById(R.id.textInputLayout);
+        /*TextInputLayout textInputLayout = view.findViewById(R.id.textInputLayout);
         AppCompatAutoCompleteTextView autoCompleteTextView = view.findViewById(R.id.autoCompleteTextView);
         String[] objectArray = objectList.toArray(new String[objectList.size()]);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(),android.R.layout.simple_dropdown_item_1line,objectArray);
@@ -112,10 +112,10 @@ public class AreaRiservataFragment extends Fragment {
         autoCompleteTextView.setThreshold(1); // Mostra suggerimenti dopo il primo carattere
 
         // Opzionale: Aggiungi un listener per gestire la selezione dell'oggetto
-        autoCompleteTextView.setOnItemClickListener((parent, view1, position, id) -> {
-            String selectedObject = (String) parent.getItemAtPosition(position);
+        //autoCompleteTextView.setOnItemClickListener((parent, view1, position, id) -> {
+         //   String selectedObject = (String) parent.getItemAtPosition(position);
             // Gestisci la selezione dell'oggetto
-        });
+        //});*/
 
         return view;
     }

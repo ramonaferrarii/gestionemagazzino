@@ -5,31 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".fragments.AreaRiservataFragment">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal" >
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Cerca oggetto">
 
-            <AutoCompleteTextView
-                android:id="@+id/autoCompleteTextView"
-                android:background="@color/red"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <EditText
-            android:id="@+id/ET_addObject"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="number"/>
-
-    </LinearLayout>
 
 
 
