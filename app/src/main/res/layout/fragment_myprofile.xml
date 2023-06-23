@@ -62,7 +62,13 @@
             android:text="@string/ReservedArea"
             android:background="@drawable/roundedbutton">
 
+
         </Button>
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/AccessFragmentContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"/>
 
 
     </LinearLayout>

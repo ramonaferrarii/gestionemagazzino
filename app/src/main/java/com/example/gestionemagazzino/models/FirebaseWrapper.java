@@ -54,7 +54,7 @@ import java.util.Map;
             private final Method method;
             private final Object thiz;
 
-            private DocumentSnapshot ds;
+
 
             public Callback(Method method, Object thiz) {
                 this.method = method;
@@ -132,6 +132,8 @@ import java.util.Map;
 
             private static final String CHILD = "Magazzino";
 
+            public HashMap<String, Object> data;
+
             private FirebaseFirestore getDb(){
                 FirebaseFirestore ref =
                         FirebaseFirestore.getInstance();
@@ -161,23 +163,25 @@ import java.util.Map;
 
             }
 
-            public void readDbData(String docName, FirestoreCallback callback){
+            public void readDbData( FirestoreCallback callback){
                 FirebaseFirestore db = getDb();
-                DocumentReference docRef = db.collection(CHILD).document(docName);
-                DocumentSnapshot ds;
-                docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                        if (task.isSuccessful()) {
-                            DocumentSnapshot document = task.getResult();
-                            if (document.exists()) {
-                                Log.d(TAG, "DocumentSnapshot data: " + document.getData());
-                                HashMap<String, Object> data = (HashMap<String, Object>) document.getData();
-                                callback.onCallback(data);
 
-                            } else {
-                                Log.d(TAG, "No such document");
+
+                db.collection(CHILD).get()
+                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        data=new HashMap<String,Object>();
+                        data.clear();
+                        if (task.isSuccessful()) {
+                            for (DocumentSnapshot document : task.getResult()) {
+                                Log.d(TAG, "DocumentSnapshot data: " + document.getData());
+                                Map<String,Object> tempData = document.getData();
+                                assert tempData != null;
+                                data.putAll(tempData);
+
                             }
+                            callback.onCallback(data);
                         } else {
                             Log.d(TAG, "get failed with ", task.getException());
                         }

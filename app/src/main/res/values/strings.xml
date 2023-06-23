@@ -29,5 +29,11 @@
     <string name="ReservedArea"> AREA RISERVATA</string>
     <string name="DoYouWantTo"> Desideri accedere alla area riservata? </string>
     <string name="areariservata"> Se desideri accedere alla area riservata inserisci la Password: </string>
+<<<<<<< HEAD
     <string name="numeri"> Numeri telefonici: </string>
+=======
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+>>>>>>> branch3
 </resources>

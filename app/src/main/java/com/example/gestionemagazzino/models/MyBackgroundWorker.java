@@ -40,8 +40,12 @@ public class MyBackgroundWorker extends Worker{
     public Result doWork(){
 
         FirebaseWrapper.RTDatabase db = new FirebaseWrapper.RTDatabase();
+<<<<<<< HEAD
         for(int i=0; i<docs.length; i++) {
             db.readDbData(docs[i], new FirebaseWrapper.RTDatabase.FirestoreCallback() {
+=======
+            db.readDbData( new FirebaseWrapper.RTDatabase.FirestoreCallback() {
+>>>>>>> branch3
                 @Override
                 public void onCallback(HashMap<String, Object> data) {
 
@@ -52,6 +56,7 @@ public class MyBackgroundWorker extends Worker{
                                 objs.add(entry.getKey());
 
                             }
+<<<<<<< HEAD
                     String obj= String.join(", ",objs);
                     //notification function
                     if(!objs.isEmpty())
@@ -60,6 +65,17 @@ public class MyBackgroundWorker extends Worker{
             });
             //TODO: to be redefined
         }
+=======
+                        }
+                        String obj= String.join(", ",objs);
+                        //notification function
+                        if(!objs.isEmpty())
+                            SendNotification("oggetto in esaurimento: "+obj);
+
+                    }
+                }
+            });
+>>>>>>> branch3
 
 
         return Result.success();
