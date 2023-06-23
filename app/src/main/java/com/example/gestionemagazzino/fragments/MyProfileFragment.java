@@ -93,13 +93,22 @@ public class MyProfileFragment extends Fragment {
         buttonAREARISERVATA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                AreaRiservataFragment fragment = new AreaRiservataFragment();
-                FragmentManager fragmentManager = getFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_container_view, fragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
+                FragmentManager fragmentManager = getChildFragmentManager();
+                Fragment fragment = fragmentManager.findFragmentById(R.id.AccessFragmentContainer);
+                if (fragment != null && fragment.isVisible()) {
+                    fragmentManager.beginTransaction().hide(fragment).commit();
+                    View spaceView = externalView.findViewById(R.id.AccessFragmentContainer);
+                    spaceView.setVisibility(View.GONE);
+                } else {
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    AccessFragment childFragment = new AccessFragment();
+                    fragmentTransaction.replace(R.id.AccessFragmentContainer, childFragment)
+                            .setReorderingAllowed(true)
+                            .addToBackStack("Main Space")
+                            .commit();
+                    View spaceView = externalView.findViewById(R.id.AccessFragmentContainer);
+                    spaceView.setVisibility(View.VISIBLE);
+                }
             }
         });
 

@@ -4,10 +4,21 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import com.example.gestionemagazzino.models.FirebaseWrapper;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.gestionemagazzino.R;
+import com.example.gestionemagazzino.adapters.ItemAdapter;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class AreaRiservataFragment extends Fragment {
 
@@ -19,6 +30,9 @@ public class AreaRiservataFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private RecyclerView recyclerView;
+    private ArrayList<String> itemList;
+    private ItemAdapter adapter;
 
     public AreaRiservataFragment() {
         // Required empty public constructor
@@ -55,12 +69,28 @@ public class AreaRiservataFragment extends Fragment {
 
     }
 
+    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_areariservata, container, false);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_area_riservata, container, false);
+        recyclerView = view.findViewById(R.id.recycler_view);
+        FirebaseWrapper.RTDatabase db= new FirebaseWrapper.RTDatabase();
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        itemList = new ArrayList<>();
+        db.readDbData(new FirebaseWrapper.RTDatabase.FirestoreCallback() {
+            @Override
+            public void onCallback(HashMap<String, Object> data) {
+                if(data!=null){
+                    for(Map.Entry<String,Object> entry : data.entrySet())
+                        itemList.add(entry.getKey()+" : "+entry.getValue());
+                    adapter = new ItemAdapter(itemList);
+                    recyclerView.setAdapter(adapter);
+                }
+            }
+        });
 
-
+        return view;
     }
+
+
 }

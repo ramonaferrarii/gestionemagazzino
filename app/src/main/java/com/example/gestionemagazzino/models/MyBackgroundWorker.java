@@ -32,8 +32,7 @@ public class MyBackgroundWorker extends Worker{
     public Result doWork(){
 
         FirebaseWrapper.RTDatabase db = new FirebaseWrapper.RTDatabase();
-        for(int i=0; i<docs.length; i++){
-            db.readDbData(docs[i], new FirebaseWrapper.RTDatabase.FirestoreCallback() {
+            db.readDbData( new FirebaseWrapper.RTDatabase.FirestoreCallback() {
                 @Override
                 public void onCallback(HashMap<String, Object> data) {
                     ArrayList<String> objs = new ArrayList<>();
@@ -49,11 +48,12 @@ public class MyBackgroundWorker extends Worker{
                         //notification function
                         if(!objs.isEmpty())
                             SendNotification("oggetto in esaurimento: "+obj);
+
                     }
                 }
             });
-            //TODO: to be redefined
-        }
+
+
         return Result.success();
     }
 
