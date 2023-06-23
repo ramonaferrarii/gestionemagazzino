@@ -92,11 +92,17 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-
-    @Override
-    public void onBackPressed() {
-// torna indietro di un passo
-        super.onBackPressed();
+// per il tasto indietro: devo controllare dove sono e se il fragment che visualizzo è MyProfile oppure Help
+    // devo sostituirlo con quello dei bottoni. in tutti gli altri casi va bene la funzione che svolge onBackPressed
+    @Override public void onBackPressed() {
+        Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container_view);
+        if (currentFragment instanceof MyProfileFragment || currentFragment instanceof HelpFragment) {
+            Fragment buttonsFragment = new ButtonsFragment();
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragment_container_view, buttonsFragment);
+            transaction.commit();
+        } else {
+            super.onBackPressed(); }
     }
 
     @Override
