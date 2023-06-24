@@ -21,8 +21,6 @@ import java.util.Random;
 
 public class MyBackgroundWorker extends Worker{
 
-    private static final String[] docs = {"Aspirazione","DPI", "Defibrillatore", "KitAmbu", "Trauma", "Ustione", "Vano Guida", "Varie", "ZainoPediatrico", "medicazione", "parto"};
-
     private static final int PERMISSION_REQUEST_CODE=(new Random()).nextInt() & Integer.MAX_VALUE;
     public MyBackgroundWorker(@NonNull Context context,@NonNull WorkerParameters workerParams){
         super(context,workerParams);

@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         //background worker init
         Constraints constraints = new Constraints.Builder().build();
         PeriodicWorkRequest workRequest = new PeriodicWorkRequest
-                .Builder(MyBackgroundWorker.class, 30, TimeUnit.SECONDS)
+                .Builder(MyBackgroundWorker.class, 15, TimeUnit.MINUTES)
                 .setConstraints(constraints)
                 .build();
         WorkManager.getInstance(this).enqueue(workRequest);

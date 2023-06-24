@@ -30,4 +30,5 @@
     <string name="DoYouWantTo"> Desideri accedere alla area riservata? </string>
     <string name="areariservata"> Inserire la password per accedere alla area riservata </string>
     <string name="numeri"> Numeri telefonici: </string>
+    <string name="dbUpdate">Selezionare dal menu a tendina l\'oggetto da reintegrare al magazzino e inserire la quantita\'</string>
 </resources>

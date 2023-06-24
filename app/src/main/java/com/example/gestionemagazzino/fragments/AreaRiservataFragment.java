@@ -1,11 +1,16 @@
 package com.example.gestionemagazzino.fragments;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
 import com.example.gestionemagazzino.models.FirebaseWrapper;
 
 import com.google.android.material.textfield.TextInputLayout;
@@ -29,16 +34,15 @@ import java.util.Map;
 
 public class AreaRiservataFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
     private List<String> objectList;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+
+
+    private final String TAG = AreaRiservataFragment.class.getCanonicalName();
+
     private RecyclerView recyclerView;
     private ArrayList<String> itemList;
     private ItemAdapter adapter;
@@ -70,11 +74,6 @@ public class AreaRiservataFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-
 
     }
 
@@ -82,11 +81,52 @@ public class AreaRiservataFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_area_riservata, container, false);
+        //recycler view
         recyclerView = view.findViewById(R.id.recycler_view);
         FirebaseWrapper.RTDatabase db= new FirebaseWrapper.RTDatabase();
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         itemList = new ArrayList<>();
+        //UI elements for storage replenishing
+        Button button = view.findViewById(R.id.B_reintegro);
+        EditText editText = view.findViewById(R.id.ET_reintegro);
+        TextInputLayout textInputLayout = view.findViewById(R.id.textInputLayout);
+        AppCompatAutoCompleteTextView autoCompleteTextView = view.findViewById(R.id.autoCompleteTextView);
         objectList = new ArrayList<>();
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //check for missing fields
+                if (editText.getText()!=null && autoCompleteTextView.getText()!=null){
+                    db.updateDbByField(autoCompleteTextView.getText().toString(),Integer.parseInt(editText.getText().toString()));
+                    //once sent, the value is reset
+                    editText.setText("0");
+                    Toast.makeText(view.getContext(), "Aggiornamento completato con successo per il documento", Toast.LENGTH_SHORT).show();
+                    //refresh the items list with the updated values
+                    itemList.clear();
+                    db.readDbData(new FirebaseWrapper.RTDatabase.FirestoreCallback() {
+                        @Override
+                        public void onCallback(HashMap<String, Object> data) {
+                            if(data!=null){
+                                for(Map.Entry<String,Object> entry : data.entrySet()){
+                                    //for complete list of key-value pairs
+                                    itemList.add(entry.getKey()+" : "+entry.getValue());
+                                }
+
+                            }
+                            //recycler view
+                            adapter = new ItemAdapter(itemList);
+                            recyclerView.setAdapter(adapter);
+
+                        }
+                    });
+
+                }else
+                    Toast.makeText(view.getContext(), "i campi non possono essere lasciati vuoti", Toast.LENGTH_SHORT).show();
+
+
+            }
+        });
 
         db.readDbData(new FirebaseWrapper.RTDatabase.FirestoreCallback() {
             @Override
@@ -98,27 +138,27 @@ public class AreaRiservataFragment extends Fragment {
                         //for complete list of object in db for quantity updates (not to be reset)
                         objectList.add((entry.getKey()));
                     }
-                    adapter = new ItemAdapter(itemList);
-                    recyclerView.setAdapter(adapter);
+
                 }
+                //recycler view
+                adapter = new ItemAdapter(itemList);
+                recyclerView.setAdapter(adapter);
+
+                //storage update utilities
+
+                String[] objectArray = new String[objectList.size()];
+                objectArray = objectList.toArray(objectArray);
+
+                ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(),android.R.layout.simple_dropdown_item_1line,objectArray);
+                autoCompleteTextView.setAdapter(adapter);
+                autoCompleteTextView.setThreshold(1); //shows suggestions after first char
+                autoCompleteTextView.setTextColor(Color.WHITE);
             }
         });
 
-        /*TextInputLayout textInputLayout = view.findViewById(R.id.textInputLayout);
-        AppCompatAutoCompleteTextView autoCompleteTextView = view.findViewById(R.id.autoCompleteTextView);
-        String[] objectArray = objectList.toArray(new String[objectList.size()]);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(),android.R.layout.simple_dropdown_item_1line,objectArray);
-        autoCompleteTextView.setAdapter(adapter);
-        autoCompleteTextView.setThreshold(1); // Mostra suggerimenti dopo il primo carattere
-
-        // Opzionale: Aggiungi un listener per gestire la selezione dell'oggetto
-        //autoCompleteTextView.setOnItemClickListener((parent, view1, position, id) -> {
-         //   String selectedObject = (String) parent.getItemAtPosition(position);
-            // Gestisci la selezione dell'oggetto
-        //});*/
-
         return view;
     }
+
 
 
 }

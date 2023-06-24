@@ -3,6 +3,7 @@ package com.example.gestionemagazzino.models;
 
 
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -33,6 +34,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 // NOTE: With firebase we have to do a network request --> We need to add the permission in the AndroidManifest.xml
 //      -> ref: https://developer.android.com/training/basics/network-ops/connecting
@@ -145,7 +147,7 @@ import java.util.Map;
 
             public void updateDbData(String doc, String key, int value){
                 //get reference to specified document
-                DocumentReference docRef = getDb().collection(CHILD).document(doc);
+               DocumentReference docRef = getDb().collection(CHILD).document(doc);
                 docRef
                         .update(key, FieldValue.increment(-value))
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -161,6 +163,43 @@ import java.util.Map;
                             }
                         });
 
+            }
+
+            public void updateDbByField(String fieldName, int incrementValue){
+                FirebaseFirestore db = getDb();
+                CollectionReference collectionRef=db.collection(CHILD);
+                collectionRef.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (DocumentSnapshot document : task.getResult()) {
+                                String documentId = document.getId();
+                                Map<String,Object> tempData = document.getData();
+                                assert tempData != null;
+                                for (Map.Entry<String, Object> entry : tempData.entrySet())
+                                    if (Objects.equals(entry.getKey(), fieldName))
+                                        entry.setValue(Integer.parseInt(entry.getValue().toString())+incrementValue);
+
+
+                                collectionRef.document(documentId).update(tempData)
+                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(Task<Void> task) {
+                                                if (task.isSuccessful()) {
+                                                    Log.d(TAG,"Aggiornamento completato con successo per il documento: " + documentId);
+
+                                                } else {
+                                                    Log.d(TAG,"Si è verificato un errore durante l'aggiornamento del documento: " + documentId);
+                                                }
+                                            }
+                                        });
+                            }
+                        } else {
+                           Log.d(TAG,"Si è verificato un errore durante la ricerca dei documenti: " + task.getException());
+                        }
+                    }
+
+                });
             }
 
             public void readDbData( FirestoreCallback callback){
