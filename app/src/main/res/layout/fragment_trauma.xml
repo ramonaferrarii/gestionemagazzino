@@ -137,6 +137,7 @@
                 android:layout_width="match_parent"
                 android:layout_gravity="center"
                 android:text="pompetta"/>
+
             <EditText
                 android:id="@+id/ET_pompetta"
                 android:layout_gravity="center"

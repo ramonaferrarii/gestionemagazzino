@@ -7,16 +7,16 @@
     tools:context=".activities.MainActivity">
 
 
-    <!-- definisco il FragmentContainer che mi permette di usare i fragment-->
+    <!-- defintion of FragmentContainer-->
     <androidx.fragment.app.FragmentContainerView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/fragment_container_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:tag="richiamo bottoni"/> <!-- mi permetterà di richiamare i fragment tramite Fragment.Manager.findfragmentByTag-->
+        android:tag="richiamo bottoni"/>
 
 
-    <!-- definisco il tasto indietro-->
+    <!-- Back Buttons-->
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -31,8 +31,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <!-- definisco menu-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

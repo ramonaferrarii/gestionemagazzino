@@ -4,7 +4,6 @@ import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.RequiresApi;
-import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,8 +29,6 @@ public class SignupFragment extends LogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        // See: https://developer.android.com/reference/android/view/LayoutInflater#inflate(org.xmlpull.v1.XmlPullParser,%20android.view.ViewGroup,%20boolean)
         View externalView = inflater.inflate(R.layout.fragment_signup, container, false);
 
         TextView link = externalView.findViewById(R.id.switchRegisterToLoginLabel);
@@ -45,7 +42,6 @@ public class SignupFragment extends LogFragment {
         Button button = externalView.findViewById(R.id.logButton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
-            // inserimento e controlli nelle seguenti righe
             public void onClick(View view) {
                 EditText email = externalView.findViewById(R.id.userEmail);
                 EditText password = externalView.findViewById(R.id.userPassword);
@@ -54,7 +50,6 @@ public class SignupFragment extends LogFragment {
                 if (email.getText().toString().isEmpty() ||
                         password.getText().toString().isEmpty() ||
                         password2.getText().toString().isEmpty()) {
-                    // TODO: Better error handling + remove this hardcoded strings
                     email.setError("Email is required");
                     password.setError("Password is required");
                     password2.setError("Password is required");
@@ -62,7 +57,6 @@ public class SignupFragment extends LogFragment {
                 }
 
                 if (!password.getText().toString().equals(password2.getText().toString())) {
-                    // TODO: Better error handling + remove this hardcoded strings
                     Toast
                             .makeText(SignupFragment.this.requireActivity(), "Passwords are different", Toast.LENGTH_LONG)
                             .show();
@@ -78,7 +72,6 @@ public class SignupFragment extends LogFragment {
                                 .newInstance(SignupFragment.this.requireActivity(),
                                         SignupFragment.this.callbackName,
                                         SignupFragment.this.callbackPrms)
-                        // sembra non ritorni niente
                 );
             }
         });

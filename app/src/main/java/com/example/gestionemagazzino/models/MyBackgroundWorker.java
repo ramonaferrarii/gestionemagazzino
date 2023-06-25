@@ -2,7 +2,6 @@ package com.example.gestionemagazzino.models;
 
 import android.annotation.SuppressLint;
 import  android.content.Context;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
@@ -11,9 +10,6 @@ import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
 import com.example.gestionemagazzino.R;
-import com.example.gestionemagazzino.activities.MainActivity;
-
-import java.security.Permission;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -66,9 +62,6 @@ public class MyBackgroundWorker extends Worker{
                 .setStyle(new NotificationCompat.BigTextStyle().bigText(msg));
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(getApplicationContext());
-        /*MainActivity main = (MainActivity)getApplicationContext();
-        PermissionManager pm = new PermissionManager(main);
-        if(!pm.askNeededPermissions(PERMISSION_REQUEST_CODE,false))*/
             //the missing permission should be "build dependent" this means that a system
             //with android build < 33, shouldn't have the permission POST_NOTIFICATIONS in their
             //needed_permission array

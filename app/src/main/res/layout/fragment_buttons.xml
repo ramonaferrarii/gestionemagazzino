@@ -8,9 +8,7 @@
 
 
 
-    <!-- definisco i bottoni ->
-
-    <!- creo ScrollView-->
+    <!-- defintion of the ScrollView-->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -36,10 +34,6 @@
                 android:background="@drawable/roundedbutton"
                 android:textColor="@android:color/black"
                 android:layout_marginBottom="@dimen/button_bottom_padding"/>
-
-        <!--per non perdere i listener del button fragment ipotizzo di creare dei sottoframmenti per i sottomenu,
-         per farlo creo dei container nel fragment, con
-         la visibilità "gone" in modo che non si veda lo spazio finchè non chiamo il fragment-->
 
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/mainSpaceFragmentContainer"

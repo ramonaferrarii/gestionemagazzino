@@ -16,7 +16,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.content.Context;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -30,8 +29,6 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MyProfileFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -44,15 +41,6 @@ public class MyProfileFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment AspirationFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static MyProfileFragment newInstance(String param1, String param2) {
         MyProfileFragment fragment = new MyProfileFragment();
         Bundle args = new Bundle();
@@ -72,7 +60,7 @@ public class MyProfileFragment extends Fragment {
     }
 
 
-    // per mostrare l'account con cui sono loggato
+    // To show the logged EMAIL
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     String userID = user.getEmail();
     @Override
@@ -90,7 +78,7 @@ public class MyProfileFragment extends Fragment {
         String userID = user.getEmail();
         userIDTextView.setText(userID);
 
- //per effettuare il LOGOUT
+ // To do the LOGOUT
         buttonLOGOUT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -102,11 +90,11 @@ public class MyProfileFragment extends Fragment {
         });
 
 
-        // per accedere all'area riservata
+        // To enter in the AREA RISERVATA
         buttonAREARISERVATA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //password hardcodata solo a fini didattici, la versione finale dovrebbe conservare la password in remoto
+                // password is HERE hardcoded for educational purposes only, the final version should keep the password remotely
                 String pass="admin";
                 if(editText.getText().toString().equals(pass)){
                     AreaRiservataFragment fragment = new AreaRiservataFragment();
@@ -130,22 +118,22 @@ public class MyProfileFragment extends Fragment {
                 // Crea un content resolver
                 ContentResolver resolver = getContentResolver();
 
-// Specifica una proiezione. Nell'esempio selezioniamo solo il nome
+                // it means a projection:we consider only the name
                 String[] projection = new String[]{
                         ContactsContract.Contacts.DISPLAY_NAME
                 };
 
-// Espressione di selezione - solo i contatti con almeno un numero di telefono
+                // Selection: only contacts with at least one phone number
                 String selection =
                         ContactsContract.Contacts.HAS_PHONE_NUMBER + " = ?";
 
                 String[] selectionArgs =
                         new String[]{"1"};
 
-// Ordina in modo crescente per nome
+                //Sort ascendingly by name
                 String sortOrder = ContactsContract.Contacts.DISPLAY_NAME + " ASC";
 
-// Esegui la query
+                 // Doing the query
                 Cursor cursor = resolver.query(ContactProvider.CONTENT_URI,
                         projection, selection, selectionArgs, sortOrder);
 
@@ -161,10 +149,6 @@ public class MyProfileFragment extends Fragment {
 
             }
 
-           /* private ContentResolver getContentResolver() {
-                MyProfileFragment.super.getContext();
-                return null;
-            }*/
         });
 
         return externalView;
@@ -174,8 +158,5 @@ public class MyProfileFragment extends Fragment {
     public ContentResolver getContentResolver() {
         return getContext().getContentResolver();
     }
-
-
-
 
 }

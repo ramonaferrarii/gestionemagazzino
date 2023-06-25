@@ -15,7 +15,6 @@ import android.widget.TextView;
 
 import com.example.gestionemagazzino.R;
 import com.example.gestionemagazzino.activities.EnterActivity;
-import com.example.gestionemagazzino.activities.SplashActivity;
 import com.example.gestionemagazzino.models.FirebaseWrapper;
 
 public class LoginFragment extends LogFragment {
@@ -29,13 +28,11 @@ public class LoginFragment extends LogFragment {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            // Inflate the layout for this fragment
-            // See: https://developer.android.com/reference/android/view/LayoutInflater#inflate(org.xmlpull.v1.XmlPullParser,%20android.view.ViewGroup,%20boolean)
             View externalView = inflater.inflate(R.layout.fragment_login, container, false);
 
             TextView link = externalView.findViewById(R.id.switchLoginToRegisterLabel);
 
-            // si riferisce al link di registrazione se non lo si è
+            // small link if the user isn't registered
             link.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -51,10 +48,8 @@ public class LoginFragment extends LogFragment {
                     EditText password = externalView.findViewById(R.id.userPassword);
 
                     if (email.getText().toString().isEmpty() || password.getText().toString().isEmpty()) {
-                        // TODO: Better error handling + remove this hardcoded strings
                         email.setError("Email is required");
                         password.setError("Password is required");
-                        // set errore è funzione di android e fa apparire nuvola con messaggio di errore
                         return;
                     }
 

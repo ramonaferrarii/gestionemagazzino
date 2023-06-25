@@ -19,8 +19,6 @@ import java.util.Random;
 @SuppressLint("CustomSplashScreen")
 public class SplashActivity extends AppCompatActivity {
     private static final String TAG = SplashActivity.class.getCanonicalName();
-
-    // Only positive int
     private static final int PERMISSION_REQUEST_CODE = (new Random()).nextInt() & Integer.MAX_VALUE;
 
     private void goToActivity(Class<?> activity) {
@@ -34,11 +32,8 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        // TODO: check user
-        // If not --> log
-        // Firebase auth: https://firebase.google.com/docs/auth/android/start?hl=en#java
         FirebaseWrapper.Auth auth = new FirebaseWrapper.Auth();
-        // utente è loggato o no? se non lo è allora chiamo l'enter activity
+        // Is the user logged? No --> EnterActivity
         if (!auth.isAuthenticated()) {
             // Go to Activity for LogIn or SignUp
             this.goToActivity(EnterActivity.class);
@@ -47,8 +42,7 @@ public class SplashActivity extends AppCompatActivity {
         // Check permissions -- Do not request at the login!
         PermissionManager pm = new PermissionManager(this);
         if (!pm.askNeededPermissions(PERMISSION_REQUEST_CODE, false)) {
-            // se i permessi sono garantiti vado alla main activity
-            // Go to MainActivity
+            // The permission are granted --> MainActivity
             this.goToActivity(MainActivity.class);
         }
 
@@ -85,22 +79,3 @@ public class SplashActivity extends AppCompatActivity {
     }
 }
 
-// da cancellare!!
-    /*public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-        if (requestCode != PERMISSION_REQUEST_CODE) {
-            return;
-        }
-
-        for (int res : grantResults) {
-            if (res == PackageManager.PERMISSION_DENIED) {
-                Log.w(TAG, "A needed permission is not granted!");
-                return;
-            }
-        }
-
-        // All permissions are granted
-        Log.d(TAG, "All the needed permissions are granted!");
-        this.goToActivity(MainActivity.class);
-    }} */

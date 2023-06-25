@@ -3,7 +3,7 @@ package com.example.gestionemagazzino.models;
 
 
 import android.util.Log;
-import android.widget.Toast;
+
 
 import androidx.annotation.NonNull;
 
@@ -15,20 +15,12 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-
-import org.checkerframework.checker.units.qual.C;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -36,17 +28,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-// NOTE: With firebase we have to do a network request --> We need to add the permission in the AndroidManifest.xml
-//      -> ref: https://developer.android.com/training/basics/network-ops/connecting
-
-// Firebase auth - https://firebase.google.com/docs/auth/android/start?hl=en#java
-// Firebase db - https://firebase.google.com/docs/database/android/start?hl=en
-
-// 1) Create a new project from - https://firebase.google.com/ (console: https://console.firebase.google.com/u/0/)
-// 2) Enable authentication: Build > Authentication > Get started , then enable Email/password (or other auth types)
-// 3a) In Android Studio: Tools > Firebase > Authentication (or Realtime Database or the thing that you need!)
-//      ( Then follow the instructions )
-// 3b) Alternative you can connect firebase to your Android app - https://firebase.google.com/docs/android/setup?hl=en#register-app
 
 
     public class FirebaseWrapper {
@@ -69,8 +50,6 @@ import java.util.Objects;
                     return new Callback(clazz.getMethod(name, prms), thiz);
                 } catch (NoSuchMethodException e) {
                     Log.w(TAG, "Cannot find method " + name + " in class " + clazz.getCanonicalName());
-
-                    // TODO: Better handling of the error
                     throw new RuntimeException(e);
                 }
             }
@@ -80,14 +59,10 @@ import java.util.Objects;
                     this.method.invoke(thiz, objs);
                 } catch (IllegalAccessException | InvocationTargetException e) {
                     Log.w(TAG, "Something went wrong during the callback. Message: " + e.getMessage());
-
-                    // TODO: Better handling of such an error
                     throw new RuntimeException(e);
                 }
             }
         }
-
-        // Auth with email and password: https://firebase.google.com/docs/auth/android/password-auth?hl=en
         public static class Auth {
             private final static String TAG = Auth.class.getCanonicalName();
             private final FirebaseAuth auth;
@@ -146,7 +121,7 @@ import java.util.Objects;
 
 
             public void updateDbData(String doc, String key, int value){
-                //get reference to specified document
+                // Get reference to specified document
                DocumentReference docRef = getDb().collection(CHILD).document(doc);
                 docRef
                         .update(key, FieldValue.increment(-value))

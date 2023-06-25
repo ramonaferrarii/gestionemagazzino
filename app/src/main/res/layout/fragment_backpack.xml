@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".fragments.BackpackFragment">
 
-    <!-- definisco il sottomenù con linearn layout-->
 
     <LinearLayout
         android:layout_width="wrap_content"

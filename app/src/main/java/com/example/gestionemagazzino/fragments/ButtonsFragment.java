@@ -1,6 +1,5 @@
 package com.example.gestionemagazzino.fragments;
 
-// è il primo fragment che andrà dentro il container e in cui definisco i bottoni
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,37 +13,16 @@ import android.widget.Button;
 
 import com.example.gestionemagazzino.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ButtonsFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class ButtonsFragment extends Fragment  {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
     public ButtonsFragment() {
         // Required empty public constructor
-
-
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ButtonsFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static ButtonsFragment newInstance(String param1, String param2) {
         ButtonsFragment fragment = new ButtonsFragment();
         Bundle args = new Bundle();
@@ -68,10 +46,10 @@ public class ButtonsFragment extends Fragment  {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         View externalView = inflater.inflate(R.layout.fragment_buttons, container, false);
 
-        // creazione dei listener per ogni bottone
+        // Listeners
         Button buttonMainSpace = externalView.findViewById(R.id.B_mainspace);
         Button buttonAspiration = externalView.findViewById(R.id.B_aspiraz);
         Button buttonDae = externalView.findViewById(R.id.B_dae);
@@ -82,7 +60,7 @@ public class ButtonsFragment extends Fragment  {
         Button buttonTrauma = externalView.findViewById(R.id.B_trauma);
         Button buttonFrontspace = externalView.findViewById(R.id.B_frontspace);
 
-        // divisione di cosa succede nelle varie casistiche se schiaccio un bottone piuttosto che un altro
+        // Cases of Buttons
         buttonMainSpace.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {

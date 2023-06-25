@@ -1,10 +1,10 @@
 <resources>
-    <string name="app_name">gestionemagazzino</string>
-    <string name="goToLogin">"Hai già un account? Clicca qui e accedi</string>
+    <string name="app_name">gestione magazzino</string>
+    <string name="goToLogin">"Hai già un account? Clicca qui e accedi!</string>
     <string name="signup">Signup</string>
     <string name="goToRegister">Non sei ancora registrato? Clicca qui e registrati!</string>
     <string name="insertPassword">Inserisci la password..</string>
-    <string name="insertEmail">Inserisci la tua EMail</string>
+    <string name="insertEmail">Inserisci la tua e-mail</string>
     <string name="insertPasswordAgain"> Inserisci di nuovo la password </string>
     <string name="login">LOGIN</string>
     <string name="mainSpace">Vano Principale</string>
@@ -17,18 +17,17 @@
     <string name="trauma">Trauma</string>
     <string name="frontSpace">Vano Guida</string>
     <string name="save">Salva</string>
-    <!-- permessi per localizzazione-->
-    <string name="neededPermissions"> Le notifiche sono necessarie al tracciamento delle risorse nel magazzino</string>
     <string name="grantPermission"> Consenti </string>
     <string name="channel_name">Gestione Magazzino</string>
     <string name="channel_description">Usato per Segnalare Mancanza di Oggetti nel Magazzino</string>
-    <string name="logout"> Desideri effettuare il logout? </string>
+    <string name="logout"> Desideri ffettuare il logout? </string>
     <string name="myprofile"> Il Mio Profilo </string>
     <string name="Help"> Aiuto </string>
     <string name="yourprofile"> IL TUO PROFILO: </string>
     <string name="ReservedArea"> AREA RISERVATA</string>
-    <string name="DoYouWantTo"> Desideri accedere alla area riservata? </string>
+    <string name="DoYouWantTo"> Desideri accedere all\' area riservata? </string>
     <string name="areariservata"> Inserire la password per accedere alla area riservata </string>
     <string name="numeri"> Numeri telefonici: </string>
     <string name="dbUpdate">Selezionare dal menu a tendina l\'oggetto da reintegrare al magazzino e inserire la quantita\'</string>
+    <string name="neededPermissions"> Le notifiche sono necessarie al tracciamento delle risorse nel magazzino</string>
 </resources>

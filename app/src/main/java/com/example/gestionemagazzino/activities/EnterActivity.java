@@ -14,41 +14,35 @@ import com.example.gestionemagazzino.fragments.LoginFragment;
 import com.example.gestionemagazzino.fragments.SignupFragment;
 
 
-// contiene i framment per login o per registrazione
-
+// This activity contains fragments for login or registration
 
 public class EnterActivity extends AppCompatActivity {
-    //Tag univoco per l'activity
+    //Unique tag for the activity
     private static final String TAG = EnterActivity.class.getCanonicalName();
     private FragmentManager fragmentManager = null;
     private Fragment fragment = null;
 
-    // prende layout di activity e la costruisce e va a mettere fragment che va definito come funziona
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enter);
-
-        // TODO: Render fragment
-        // Render fragment è chiamata solamente
+        // Render fragment is here only called
         renderFragment(true);
        }
 
-       // definisco la funzione renderFragment
+       // Render fragment is here definited
     public void renderFragment(boolean isLogin) {
         if(isLogin)
             fragment = LoginFragment.newInstance(LoginFragment.class,"signinCallback", boolean.class);
-            // TODO: Update to switch between Login and Signup fragments
+
         else
             fragment = SignupFragment.newInstance(SignupFragment.class,"signinCallback", boolean.class);
-        //QUESTION:Non so cosa faccia
+
         if (this.fragmentManager == null) {
             this.fragmentManager = this.getSupportFragmentManager();
         }
 
         FragmentTransaction fragmentTransaction = this.fragmentManager.beginTransaction();
-
-        // For optimizations -- See: https://developer.android.com/reference/androidx/fragment/app/FragmentTransaction#setReorderingAllowed(boolean)
         fragmentTransaction.setReorderingAllowed(true);
         fragmentTransaction.replace(R.id.loginRegisterFragment, fragment);
 
@@ -56,7 +50,7 @@ public class EnterActivity extends AppCompatActivity {
     }
 
 
-    // definisco funzione di callback
+    // definition of signinCallback
     public void signinCallback(boolean result) {
         if (!result) {
             // TODO: Better handling of the error message --> e.g., put in a textview of the activity/fragment

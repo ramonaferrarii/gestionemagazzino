@@ -19,12 +19,9 @@ import java.util.Map;
 
 public class ChildpackFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
@@ -32,25 +29,10 @@ public class ChildpackFragment extends Fragment {
 
     private ArrayList<EditText> editTextsList = new ArrayList<EditText>();
 
-    private EditText collareped;
-    private EditText cuscinettifermacapo;
-    private EditText ragnopediatrico;
-    private EditText copertaisotermica;
-    private EditText fisiologica;
-
     public ChildpackFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment AspirationFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static AspirationFragment newInstance(String param1, String param2) {
         AspirationFragment fragment = new AspirationFragment();
         Bundle args = new Bundle();
@@ -73,9 +55,7 @@ public class ChildpackFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        //return inflater.inflate(R.layout.fragment_childpack, container, false);
         View externalView = inflater.inflate(R.layout.fragment_childpack, container, false);
-        //editTextsList.add(externalView.findViewById(R.id.ET_));
         editTextsList.add(externalView.findViewById(R.id.ET_collare_ped));
         editTextsList.add(externalView.findViewById(R.id.ET_cuscinetti_fermacapo));
         editTextsList.add(externalView.findViewById(R.id.ET_ragno_pediatrico));
@@ -107,7 +87,6 @@ public class ChildpackFragment extends Fragment {
                     editText.setText("0");
                 CharSequence msg="parametri salvati";
                 Toast.makeText(externalView.getContext(), msg, Toast.LENGTH_SHORT).show();
-                //TODO: handle the case where the user submits an empty editText
             }
         });
         return externalView;
