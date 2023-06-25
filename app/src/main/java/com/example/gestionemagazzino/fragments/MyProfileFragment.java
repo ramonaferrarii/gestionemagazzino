@@ -1,7 +1,14 @@
 package com.example.gestionemagazzino.fragments;
 
+import static android.content.ContentValues.TAG;
+
+import android.annotation.SuppressLint;
+import android.content.ContentResolver;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.provider.ContactsContract;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.Context;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -73,6 +81,7 @@ public class MyProfileFragment extends Fragment {
         Button buttonLOGOUT = externalView.findViewById(R.id.B_LOGOUT);
         EditText editText = externalView.findViewById(R.id.ET_Pass);
         Button buttonAREARISERVATA = externalView.findViewById(R.id.B_ENTER_AR);
+        Button buttonCONTATTI = externalView.findViewById(R.id.B_CONTATTI);
 
 
         TextView userIDTextView = (TextView) externalView.findViewById(R.id.userIDTextView);
@@ -115,11 +124,56 @@ public class MyProfileFragment extends Fragment {
             }
         });
 
+        buttonCONTATTI.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Crea un content resolver
+                ContentResolver resolver = getContentResolver();
+
+// Specifica una proiezione. Nell'esempio selezioniamo solo il nome
+                String[] projection = new String[]{
+                        ContactsContract.Contacts.DISPLAY_NAME
+                };
+
+// Espressione di selezione - solo i contatti con almeno un numero di telefono
+                String selection =
+                        ContactsContract.Contacts.HAS_PHONE_NUMBER + " = ?";
+
+                String[] selectionArgs =
+                        new String[]{"1"};
+
+// Ordina in modo crescente per nome
+                String sortOrder = ContactsContract.Contacts.DISPLAY_NAME + " ASC";
+
+// Esegui la query
+                Cursor cursor = resolver.query(ContactProvider.CONTENT_URI,
+                        projection, selection, selectionArgs, sortOrder);
+
+// Scorri il cursor per recuperare i dati
+                while (cursor.moveToNext()) {
+                    @SuppressLint("Range") String name = cursor.getString(cursor.getColumnIndex(
+                            ContactsContract.Contacts.DISPLAY_NAME));
+
+                    Log.d(TAG, "Name: " + name);
+                }
+
+                cursor.close();
+
+            }
+
+           /* private ContentResolver getContentResolver() {
+                MyProfileFragment.super.getContext();
+                return null;
+            }*/
+        });
+
         return externalView;
     }
 
 
-
+    public ContentResolver getContentResolver() {
+        return getContext().getContentResolver();
+    }
 
 
 
