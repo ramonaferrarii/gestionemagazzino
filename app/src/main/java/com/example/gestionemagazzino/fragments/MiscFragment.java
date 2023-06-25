@@ -77,13 +77,14 @@ public class MiscFragment extends Fragment {
                     }
                 }
                 FirebaseWrapper.RTDatabase RTdb = new FirebaseWrapper.RTDatabase();
-                for (Map.Entry<String, Integer> entry : editTextValues.entrySet())
-                    RTdb.updateDbData("Varie", entry.getKey(), entry.getValue());
-
+                boolean count=true;
+                for (Map.Entry<String, Integer> entry : editTextValues.entrySet()){
+                    RTdb.updateDbData("Varie",entry.getKey(),entry.getValue(),getContext(),count);
+                    count = false;
+                }
                 for (EditText editText : editTextsList)
                     editText.setText("0");
-                CharSequence msg = "parametri salvati";
-                Toast.makeText(externalView.getContext(), msg, Toast.LENGTH_SHORT).show();
+
             }
         });
         return externalView;

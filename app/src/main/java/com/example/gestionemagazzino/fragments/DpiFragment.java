@@ -81,13 +81,13 @@ public class DpiFragment extends Fragment {
                 }
 
                 FirebaseWrapper.RTDatabase RTdb = new FirebaseWrapper.RTDatabase();
+                boolean count=true;
                 for (Map.Entry<String, Integer> entry : editTextValues.entrySet()){
-                    RTdb.updateDbData("DPI",entry.getKey(),entry.getValue());
+                    RTdb.updateDbData("DPI",entry.getKey(),entry.getValue(),getContext(),count);
+                    count = false;
                 }
                 for (EditText editText : editTextsList)
                     editText.setText("0");
-                CharSequence msg="parametri salvati";
-                Toast.makeText(externalView.getContext(), msg, Toast.LENGTH_SHORT).show();
             }
         });
         return externalView;

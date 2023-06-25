@@ -66,6 +66,7 @@ public class ButtonsFragment extends Fragment  {
             public void onClick(View view) {
                 FragmentManager fragmentManager = getParentFragmentManager();
                 Fragment fragment = fragmentManager.findFragmentById(R.id.mainSpaceFragmentContainer);
+                //questo costrutto condizionale risolve il problema della chiusura delle tendine in caso di tocchi successivi
                 if (fragment != null && fragment.isVisible()) {
                     fragmentManager.beginTransaction().hide(fragment).commit();
                     View spaceView = externalView.findViewById(R.id.mainSpaceFragmentContainer);

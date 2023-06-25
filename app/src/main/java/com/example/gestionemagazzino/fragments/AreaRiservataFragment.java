@@ -81,11 +81,10 @@ public class AreaRiservataFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 // Check for missing fields
-                if (editText.getText()!=null && autoCompleteTextView.getText()!=null){
-                    db.updateDbByField(autoCompleteTextView.getText().toString(),Integer.parseInt(editText.getText().toString()));
-                    // Once sent, the value is reset
+                if (!editText.getText().toString().isEmpty() && !autoCompleteTextView.getText().toString().isEmpty()){
+                    db.updateDbByField(autoCompleteTextView.getText().toString(),Integer.parseInt(editText.getText().toString()),getContext());
+                    // Once sent, the value is reset, in order to prevent accidental multiple updates
                     editText.setText("0");
-                    Toast.makeText(view.getContext(), "Aggiornamento completato con successo per il documento", Toast.LENGTH_SHORT).show();
                     // Refresh the items list with the updated values
                     itemList.clear();
                     db.readDbData(new FirebaseWrapper.RTDatabase.FirestoreCallback() {

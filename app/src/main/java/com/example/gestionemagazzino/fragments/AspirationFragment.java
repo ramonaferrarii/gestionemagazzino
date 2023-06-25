@@ -84,14 +84,14 @@ public class AspirationFragment extends Fragment {
                 }
 
                 FirebaseWrapper.RTDatabase RTdb = new FirebaseWrapper.RTDatabase();
+                boolean count=true;
                 for (Map.Entry<String, Integer> entry : editTextValues.entrySet()){
-                    RTdb.updateDbData("Aspirazione",entry.getKey(),entry.getValue());
+                    RTdb.updateDbData("Aspirazione",entry.getKey(),entry.getValue(),getContext(),count);
+                    count = false;
                 }
                 for (EditText editText : editTextsList)
                     editText.setText("0");
-                CharSequence msg="parametri salvati";
-                Toast.makeText(externalView.getContext(), msg, Toast.LENGTH_SHORT).show();
-                //TODO: handle the case where the user submits an empty editText
+
             }
         });
         return externalView;

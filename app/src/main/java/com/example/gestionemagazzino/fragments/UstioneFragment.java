@@ -64,6 +64,7 @@ public class UstioneFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 HashMap<String, Integer> editTextValues= new HashMap<>();
+                //all values of a document are updated, thus the zeros by default applied to the EditTexts
                 for(int i=0;i<dbKeys.length;i++) {
                     String text = editTextsList.get(i).getText().toString().trim();
                     if (!text.isEmpty()) {
@@ -79,13 +80,13 @@ public class UstioneFragment extends Fragment {
                 }
 
                 FirebaseWrapper.RTDatabase RTdb = new FirebaseWrapper.RTDatabase();
+                boolean count=true;
                 for (Map.Entry<String, Integer> entry : editTextValues.entrySet()){
-                    RTdb.updateDbData("Ustione",entry.getKey(),entry.getValue());
+                    RTdb.updateDbData("Ustione",entry.getKey(),entry.getValue(),getContext(),count);
+                    count = false;
                 }
                 for (EditText editText : editTextsList)
                     editText.setText("0");
-                CharSequence msg="parametri salvati";
-                Toast.makeText(externalView.getContext(), msg, Toast.LENGTH_SHORT).show();
             };
         });
         return externalView;

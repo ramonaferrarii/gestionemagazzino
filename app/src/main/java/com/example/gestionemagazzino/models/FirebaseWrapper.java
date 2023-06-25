@@ -2,7 +2,9 @@
 package com.example.gestionemagazzino.models;
 
 
+import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 
 import androidx.annotation.NonNull;
@@ -36,6 +38,7 @@ import java.util.Objects;
             private final static String TAG = Callback.class.getCanonicalName();
             private final Method method;
             private final Object thiz;
+
 
 
 
@@ -111,6 +114,7 @@ import java.util.Objects;
 
             public HashMap<String, Object> data;
 
+
             private FirebaseFirestore getDb(){
                 FirebaseFirestore ref =
                         FirebaseFirestore.getInstance();
@@ -120,7 +124,7 @@ import java.util.Objects;
             }
 
 
-            public void updateDbData(String doc, String key, int value){
+            public void updateDbData(String doc, String key, int value, Context context,boolean count){
                 // Get reference to specified document
                DocumentReference docRef = getDb().collection(CHILD).document(doc);
                 docRef
@@ -129,18 +133,22 @@ import java.util.Objects;
                             @Override
                             public void onSuccess(Void unused) {
                                 Log.d(TAG, "DocumentSnapshot successfully updated");
+                                if(count)
+                                    Toast.makeText(context,"Magazzino correttamente aggiornato", Toast.LENGTH_SHORT).show();
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
                                 Log.w(TAG, "Error updating document", e);
+                                Toast.makeText(context,"Errore nell'aggiornamento, si prega di riprovare",Toast.LENGTH_SHORT).show();
                             }
                         });
 
             }
 
-            public void updateDbByField(String fieldName, int incrementValue){
+            //Necessary for updating fields without knowing the document name, this simplifies user experience
+            public void updateDbByField(String fieldName, int incrementValue,Context context){
                 FirebaseFirestore db = getDb();
                 CollectionReference collectionRef=db.collection(CHILD);
                 collectionRef.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -152,8 +160,9 @@ import java.util.Objects;
                                 Map<String,Object> tempData = document.getData();
                                 assert tempData != null;
                                 for (Map.Entry<String, Object> entry : tempData.entrySet())
-                                    if (Objects.equals(entry.getKey(), fieldName))
-                                        entry.setValue(Integer.parseInt(entry.getValue().toString())+incrementValue);
+                                    if (Objects.equals(entry.getKey(), fieldName)) {
+                                        entry.setValue(Integer.parseInt(entry.getValue().toString()) + incrementValue);
+                                    }
 
 
                                 collectionRef.document(documentId).update(tempData)
@@ -161,10 +170,13 @@ import java.util.Objects;
                                             @Override
                                             public void onComplete(Task<Void> task) {
                                                 if (task.isSuccessful()) {
+                                                    //message displayed n-times (once for every document), couldn't find a solution
                                                     Log.d(TAG,"Aggiornamento completato con successo per il documento: " + documentId);
+                                                    Toast.makeText(context, "Magazzino correttamente aggiornato", Toast.LENGTH_SHORT).show();
 
                                                 } else {
                                                     Log.d(TAG,"Si è verificato un errore durante l'aggiornamento del documento: " + documentId);
+                                                    Toast.makeText(context,"Errore nell'aggiornamento, si prega di riprovare",Toast.LENGTH_SHORT).show();
                                                 }
                                             }
                                         });
