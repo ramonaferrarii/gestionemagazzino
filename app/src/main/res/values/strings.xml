@@ -30,4 +30,5 @@
     <string name="numeri"> Numeri telefonici: </string>
     <string name="dbUpdate">Selezionare dal menu a tendina l\'oggetto da reintegrare al magazzino e inserire la quantita\'</string>
     <string name="neededPermissions"> Le notifiche sono necessarie al tracciamento delle risorse nel magazzino</string>
+    <string name = "scopo"> Scegliere il materiale di cui fare rifornimento in base a dove lo si vorra\' disporre: </string>
 </resources>
