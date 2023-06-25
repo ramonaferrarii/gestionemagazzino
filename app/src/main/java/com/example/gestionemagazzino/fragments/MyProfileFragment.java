@@ -63,13 +63,13 @@ public class MyProfileFragment extends Fragment {
     // To show the logged EMAIL
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     String userID = user.getEmail();
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View externalView = inflater.inflate(R.layout.fragment_myprofile, container, false);
         Button buttonLOGOUT = externalView.findViewById(R.id.B_LOGOUT);
         EditText editText = externalView.findViewById(R.id.ET_Pass);
         Button buttonAREARISERVATA = externalView.findViewById(R.id.B_ENTER_AR);
-        Button buttonCONTATTI = externalView.findViewById(R.id.B_CONTATTI);
 
 
         TextView userIDTextView = (TextView) externalView.findViewById(R.id.userIDTextView);
@@ -78,7 +78,7 @@ public class MyProfileFragment extends Fragment {
         String userID = user.getEmail();
         userIDTextView.setText(userID);
 
- // To do the LOGOUT
+        // To do the LOGOUT
         buttonLOGOUT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -95,8 +95,8 @@ public class MyProfileFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 // password is HERE hardcoded for educational purposes only, the final version should keep the password remotely
-                String pass="admin";
-                if(editText.getText().toString().equals(pass)){
+                String pass = "admin";
+                if (editText.getText().toString().equals(pass)) {
                     AreaRiservataFragment fragment = new AreaRiservataFragment();
                     FragmentManager fragmentManager = getParentFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -105,58 +105,12 @@ public class MyProfileFragment extends Fragment {
                             .addToBackStack("AreaRiservata")
                             .commit();
 
-                }
-                else
+                } else
                     Toast.makeText(externalView.getContext(), "password incorretta", Toast.LENGTH_SHORT).show();
 
             }
         });
 
-        buttonCONTATTI.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Crea un content resolver
-                ContentResolver resolver = getContentResolver();
-
-                // it means a projection:we consider only the name
-                String[] projection = new String[]{
-                        ContactsContract.Contacts.DISPLAY_NAME
-                };
-
-                // Selection: only contacts with at least one phone number
-                String selection =
-                        ContactsContract.Contacts.HAS_PHONE_NUMBER + " = ?";
-
-                String[] selectionArgs =
-                        new String[]{"1"};
-
-                //Sort ascendingly by name
-                String sortOrder = ContactsContract.Contacts.DISPLAY_NAME + " ASC";
-
-                 // Doing the query
-                Cursor cursor = resolver.query(ContactProvider.CONTENT_URI,
-                        projection, selection, selectionArgs, sortOrder);
-
-// Scorri il cursor per recuperare i dati
-                while (cursor.moveToNext()) {
-                    @SuppressLint("Range") String name = cursor.getString(cursor.getColumnIndex(
-                            ContactsContract.Contacts.DISPLAY_NAME));
-
-                    Log.d(TAG, "Name: " + name);
-                }
-
-                cursor.close();
-
-            }
-
-        });
-
         return externalView;
     }
-
-
-    public ContentResolver getContentResolver() {
-        return getContext().getContentResolver();
-    }
-
 }
