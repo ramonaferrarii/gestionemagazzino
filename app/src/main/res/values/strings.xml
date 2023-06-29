@@ -29,6 +29,6 @@
     <string name="areariservata"> Inserire la password per accedere alla area riservata </string>
     <string name="numeri"> Numeri telefonici: </string>
     <string name="dbUpdate">Selezionare dal menu a tendina l\'oggetto da reintegrare al magazzino e inserire la quantita\'</string>
-    <string name="neededPermissions"> Le notifiche sono necessarie al tracciamento delle risorse nel magazzino</string>
+    <string name="neededPermissions"> Si prega di accettare i permessi seguenti, nel caso in cui non compaiano i popup, sarà necessario dare i permessi dalle impostazioni dell\' app</string>
     <string name = "scopo"> Indicare il materiale reintegrato sul mezzo: </string>
 </resources>

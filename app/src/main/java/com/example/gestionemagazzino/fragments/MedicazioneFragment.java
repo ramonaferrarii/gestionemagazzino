@@ -80,7 +80,7 @@ public class MedicazioneFragment extends Fragment {
                 FirebaseWrapper.RTDatabase RTdb = new FirebaseWrapper.RTDatabase();
                 boolean count=true;
                 for (Map.Entry<String, Integer> entry : editTextValues.entrySet()){
-                    RTdb.updateDbData("Medicazione",entry.getKey(),entry.getValue(),getContext(),count);
+                    RTdb.updateDbData("medicazione",entry.getKey(),entry.getValue(),getContext(),count);
                     count = false;
                 }
                 for (EditText editText : editTextsList)

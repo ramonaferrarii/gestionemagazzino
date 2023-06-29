@@ -79,7 +79,7 @@ public class KitAmbuFragment extends Fragment {
                 FirebaseWrapper.RTDatabase RTdb = new FirebaseWrapper.RTDatabase();
                 boolean count=true;
                 for (Map.Entry<String, Integer> entry : editTextValues.entrySet()){
-                    RTdb.updateDbData("kitAmbu",entry.getKey(),entry.getValue(),getContext(),count);
+                    RTdb.updateDbData("KitAmbu",entry.getKey(),entry.getValue(),getContext(),count);
                     count = false;
                 }
                 for (EditText editText : editTextsList)
